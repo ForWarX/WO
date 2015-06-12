@@ -1,0 +1,21 @@
+Array
+(
+    [address_id] => 199
+    [address_name] => 
+    [user_id] => 307
+    [consignee] => 黄慧
+    [consignee_id] => 120105198310015111
+    [have_id_front] => 1
+    [have_id_back] => 1
+    [email] => def@tio.com
+    [country] => 1
+    [province] => 6
+    [city] => 77
+    [district] => 705
+    [address] => 源深路92号航科大厦19楼
+    [zipcode] => 518057
+    [tel] => 13917700083
+    [mobile] => 
+    [sign_building] => 
+    [best_time] => 
+)
