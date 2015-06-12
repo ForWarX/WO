@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div style="float:left">
+{if $user_info}
+
+<span>亲爱的<span class="f4_b" style="color:#65318F">{$user_info.username}</span>，欢迎使用银联卡人民币付款。今日加币兑换人民币的汇率为 <span style="color:#EF5A2C; font-weight:bold">{$lang.exchange_rate}</span>&nbsp;</span>    
+[ <a href="user.php">{$lang.user_center}</a> /  
+ <a href="user.php?act=logout">{$lang.user_logout}</a>  ] <!--{if $user_info.user_rank neq 3}--><a href="/store/topic.php?topic_id=2" style="color:#EF5A2C;">开通高级会员，享受三重福利！</a>| <!--{/if}-->
+
+{else}
+<span>{$lang.hello}，欢迎使用银联卡人民币付款。今日加币兑换人民币的汇率为 <span style="color:#EF5A2C; font-weight:bold">{$lang.exchange_rate}</span> &nbsp;| </span><!--
+<span>{$lang.hello}，今日加币兑换人民币的汇率为 <span style="color:#E43745; font-weight:bold">5.5649</span> &nbsp;| </span>-->
+  <a href="user.php">请登录</a> | 
+ <a href="user.php?act=register">免费注册</a> | <a href="/store/topic.php?topic_id=2" style="color:#EF5A2C;">开通高级会员，享受三重福利！</a>|  
+{/if}
+
+ 
+</div>

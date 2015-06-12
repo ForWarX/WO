@@ -1,0 +1,152 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+{insert_scripts files='jquery.js,jquery.json.js'}
+{insert_scripts files='transport.js,region.js'}
+
+<script language="javascript">
+	/*var obj11 = document.getElementsByClassName("g-menu")[0];
+	var srch = document.getElementById("search-form");
+	var top11 = getTop(obj11);
+	
+	var isIE6 = /msie 6/i.test(navigator.userAgent);
+window.onscroll = function(){
+var bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+if (bodyScrollTop > top11){
+	
+
+obj11.style.position = (isIE6) ? "absolute" : "fixed";
+obj11.style.top = (isIE6) ? (bodyScrollTop) + "px" : "0px";
+	obj11.style.background = "none repeat scroll 0 0 rgba(249, 106, 100, 0.8)";
+	srch.style.visibility = "visible";
+	srch.style.opacity = "1";
+	} else {
+obj11.style.position = "inherit";
+obj11.style.top = "155px";
+obj11.style.zIndex = "9999";
+srch.style.visibility = "hidden";
+obj11.style.background = "none repeat scroll 0 0 rgba(249, 106, 100, 1)";
+}
+}
+function getTop(e){
+var offset = e.offsetTop;
+if(e.offsetParent != null) offset += getTop(e.offsetParent);
+return offset;
+} */
+$(document).ready(function(){
+	$(".nav-sec").hover(
+		/*function(){
+  		$(".dropdown",this).css('left','0px');
+		$(this).addClass('selected');
+ 		}, 
+		function(){
+		$(".dropdown",this).css('left','-9999px');
+		$(this).removeClass('selected');
+		}*/
+		function(){
+  			//$(this).next().children().css('border-left','1px solid #fff');
+			$(".dropdown",this).css('left','-2px');
+			$(".dropdown",this).css('width','100%');
+			$(".dropdown",this).css('z-index','99999999');
+			$(this).addClass('selected');
+ 		}, 
+		function(){
+			//$(this).next().children().css('border-left','1px solid #f23622');
+			$(".dropdown",this).css('left','-9999px');
+			$(this).removeClass('selected');
+		}
+	);
+	
+	/*if (document.all && !document.querySelector) {
+		alert('为了提高用户体验，请升级您的浏览器吧');
+	}*/
+	
+	/*if (document.all && document.querySelector && !document.addEventListener) {
+		alert('为了提高用户体验，请升级您的浏览器吧');
+	}*/
+	
+	if (document.all && !window.atob) {
+		alert('为了提高用户体验，请升级您的浏览器至IE10以上吧');
+	}
+	
+	});
+</script>
+
+
+
+
+
+
+
+
+
+<header id="masthead-1" class="site-header-1 border-bottom-1 kra-header-layout-standard-1" role="banner">
+    
+            
+        
+
+<div class="site-container-1">
+    
+    <div class="site-header-left-1">
+		<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+		<tr>
+		<td>
+        <h1 class="site-title-1"><a href="http://localhost/wordpress/" rel="home">wingon</a></h1>    
+        <h2 class="site-description-1">又一个WordPress站点</h2>
+		</td>
+		<td width="10">
+		</td>
+		<td>
+		    		    {$language_a}
+		</td>
+		</tr>
+		</table>
+    </div><!-- .site-branding -->
+    
+    <div class="site-header-right-1">
+        
+            <form role="search" method="get" class="search-form" action="http://localhost/wordpress/">
+				<label>
+					<span class="screen-reader-text">{$_LANG.search}</span>
+					<input type="search" class="search-field" placeholder="{$_LANG.search}..." value="" name="s" title="{$_LANG.search}" autocomplete="off">
+				</label>
+				<input type="submit" class="search-submit" value="{$_LANG.search}">
+			</form>  
+          
+            
+                
+    </div>
+    <div class="clearboth"></div>
+
+</div>
+
+<nav id="site-navigation-1" class="main-navigation-1" role="navigation">
+    
+    <div class="site-container-1">
+	
+	
+    <label for="show-menu" class="show-menu"></label>
+	<input type="checkbox" id="show-menu" name="show-menu" role="button">
+
+		<ul id="menu" aria-expanded="false" class=" nav-menu-1">		
+        <!-- {foreach name=no from=$navigator_list.middle item=nav } -->
+		<li class="page_item">
+		<a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}    >{$nav.name}<!-- {if $nav.name eq '促销活动' || $nav.name eq '特别专区' || $nav.name eq '会员中心'}--><i class="icomoon-arrow-down-15"></i><!--{/if}--></a>
+        </li>
+        <!-- {/foreach} -->
+		</ul>
+		<ul id="invisible-menu" aria-expanded="false" class="nav-menu-1">		
+        <!-- {foreach name=no from=$navigator_list.middle item=nav } -->
+		<li class="page_item">
+		<a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}    >{$nav.name}<!-- {if $nav.name eq '促销活动' || $nav.name eq '特别专区' || $nav.name eq '会员中心'}--><i class="icomoon-arrow-down-15"></i><!--{/if}--></a>
+        </li>
+        <!-- {/foreach} -->
+		</ul>
+
+    </div>
+    
+</nav><!-- #site-navigation -->        
+
+</header>
+
