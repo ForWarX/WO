@@ -1790,6 +1790,21 @@ function assign_template($ctype = '', $catlist = array())
 					   <option value="language.php?language=ch&pre='.$prev_uri.'">简体中文</option>
 					   </select>';
 	}
+	
+	
+	
+	
+	
+	
+	$shop_desc = 'shop_desc'.$_SESSION['language'];
+	$sql = 'SELECT value FROM ' . $GLOBALS['ecs']->table('shop_config') . ' WHERE code = "'.$shop_desc.'"';
+    $web_site_description = $GLOBALS['db']->getOne($sql);
+	
+	
+	
+	
+	
+	
 
 	//unset($_SESSION['language']);
 	$smarty->assign('_LANG',               $GLOBALS['_LANG']);                       // 语言
@@ -1815,6 +1830,7 @@ function assign_template($ctype = '', $catlist = array())
     $smarty->assign('catalog_list',  cat_list(0, 0, false, 1, false));
     $smarty->assign('navigator_list',        get_navigator($ctype, $catlist));  //自定义导航栏
 	$smarty->assign('language_a', $language_a);
+	$smarty->assign('web_site_description', $web_site_description);
 	
     if (!empty($GLOBALS['_CFG']['search_keywords']))
     {
