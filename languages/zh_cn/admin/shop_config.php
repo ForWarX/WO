@@ -49,6 +49,7 @@ $_LANG['cfg_name']['shop_name'] = '商店名称';
 $_LANG['cfg_name']['shop_title'] = '商店标题';
 $_LANG['cfg_name']['shop_website'] = '商店网址';
 $_LANG['cfg_name']['shop_desc'] = '商店描述';
+$_LANG['cfg_name']['shop_desc_en'] = '商店描述(英文)';
 $_LANG['cfg_name']['shop_keywords'] = '商店关键字';
 $_LANG['cfg_name']['shop_country'] = '所在国家';
 $_LANG['cfg_name']['shop_province'] = '所在省份';

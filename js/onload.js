@@ -11,10 +11,15 @@ jQuery(window).resize(function(e) {
 
 
 function slidersize(){
-		/*var screenW = jQuery('body').innerWidth();
+		var screenW = jQuery('body').innerWidth();
 		var screenH = jQuery('body').height();
-		var imgHeight = jssorb21Width = jQuery(".slider-img").css('height');
-		imgHeight = parseInt(imgHeight);
+		
+		var hamburgermenuwidth = jQuery("#hamburgermenu").css('width');
+		hamburgermenuwidth = parseInt(hamburgermenuwidth);
+		hamburgerleft = (screenW / 2) - (hamburgermenuwidth / 2);
+		jQuery("#hamburger-menu").css('left',hamburgerleft);
+		//var imgHeight = jssorb21Width = jQuery(".slider-img").css('height');
+		//imgHeight = parseInt(imgHeight);
 		/*jQuery("#home-slider-wrap").css('width',screenW);
 		jQuery("#home-slider-wrap").css('height',screenW * 0.3);
 		jQuery("#slides-inside-wrapper").css('width',screenW);

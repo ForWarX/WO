@@ -48,9 +48,11 @@ if ($_REQUEST['act'] == 'list_edit')
     }
     @closedir($dir);
 
+	$group_list = get_settings(null, array('5'));
+	$group_list[1]['vars'] = resort_group_list($group_list[1]['vars'],"103","904");
     $smarty->assign('lang_list',    $lang_list);
     $smarty->assign('ur_here',      $_LANG['01_shop_config']);
-    $smarty->assign('group_list',   get_settings(null, array('5')));
+    $smarty->assign('group_list',   $group_list);
     $smarty->assign('countries',    get_regions());
 
     if (strpos(strtolower($_SERVER['SERVER_SOFTWARE']), 'iis') !== false)
@@ -403,8 +405,37 @@ function get_settings($groups=null, $excludes=null)
         }
 
     }
-
     return $group_list;
+}
+
+function resort_group_list($arry,$flag_id,$id){
+	
+	$new_arry = array();
+	$index = '';
+	foreach ($arry as $key => $value){
+		if ($value['id'] == $id){
+			$index = $key;
+			break;
+		}
+	}
+	
+	$flag = false;
+	foreach ($arry as $key => $value){
+		if ($flag === true){
+			$new_arry[] = $arry[$index];
+			$flag = false;
+		}
+		else {
+			if ($value['id'] != $id && $value['id'] != $flag_id){
+				$new_arry[] = $value;
+			}
+		}
+		if ($value['id'] == $flag_id){
+			$flag = true;
+			$new_arry[] = $value;
+		}
+	}
+	return $new_arry;
 }
 
 ?>
