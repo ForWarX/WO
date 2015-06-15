@@ -93,7 +93,7 @@ $(document).ready(function(){
 		<tr>
 		<td>
         <h1 class="site-title-1"><a href="http://localhost/wordpress/" rel="home">wingon</a></h1>    
-        <h2 class="site-description-1">又一个WordPress站点</h2>
+        <h2 class="site-description-1">{$web_site_description}</h2>
 		</td>
 		<td width="10">
 		</td>
@@ -126,7 +126,7 @@ $(document).ready(function(){
     <div class="site-container-1">
 	
 	
-    <label for="show-menu" class="show-menu"></label>
+    <label for="show-menu" class="show-menu"><span id="hamburgermenu"></span></label>
 	<input type="checkbox" id="show-menu" name="show-menu" role="button">
 
 		<ul id="menu" aria-expanded="false" class=" nav-menu-1">		
