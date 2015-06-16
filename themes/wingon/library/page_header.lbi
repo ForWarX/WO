@@ -4,6 +4,7 @@ var process_request = "{$lang.process_request}";
 </script>
 {insert_scripts files='jquery.js,jquery.json.js'}
 {insert_scripts files='transport.js,region.js'}
+<script src="{$ecs_bootstrap_bootstrap_min_js_path}"></script>
 
 <script language="javascript">
 	/*var obj11 = document.getElementsByClassName("g-menu")[0];

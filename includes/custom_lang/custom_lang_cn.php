@@ -726,4 +726,18 @@ $_LANG['goods_desc_h3'] = '产品描述';
 $_LANG['goods_detail_h3'] = '产品细节';
 $_LANG['goods_func_h3'] = '产品功效';
 $_LANG['goods_use_h3'] = '特色吃法';
+
+/// index.dwt ///
+$_LANG['dynamic_news'] = '新闻动态';
+$_LANG['company_intro'] = '公司简介';
+$_LANG['contact_us'] = '联系我们';
+
+
+$_LANG['company_intro_content'] = 'WING ON是一间根植于北美的国际性食品、消费品设计、生产、贸易和服务公司，我们在全世界范围内与在食品、消费品研发生产领域的卓越机构结成战略合作伙伴关系，生产POLAR BEAR ，TIGER KING等自主品牌的优质超值产品并代理欧美优质名牌产品在全球范围内销售。';
+
+
+
+
+
+
 ?>

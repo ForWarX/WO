@@ -18,6 +18,7 @@ function slidersize(){
 		hamburgermenuwidth = parseInt(hamburgermenuwidth);
 		hamburgerleft = (screenW / 2) - (hamburgermenuwidth / 2);
 		jQuery("#hamburger-menu").css('left',hamburgerleft);
+		//jQuery(".jssora21").css('left',200);
 		//var imgHeight = jssorb21Width = jQuery(".slider-img").css('height');
 		//imgHeight = parseInt(imgHeight);
 		/*jQuery("#home-slider-wrap").css('width',screenW);

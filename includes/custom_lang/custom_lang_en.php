@@ -725,4 +725,11 @@ $_LANG['goods_detail_h3'] = 'Detail';
 $_LANG['goods_func_h3'] = 'Function';
 $_LANG['goods_use_h3'] = 'Recipe';
 
+/// index.dwt ///
+$_LANG['dynamic_news'] = 'News Center';
+$_LANG['company_intro'] = 'Company Intro';
+$_LANG['contact_us'] = 'Contact Us';
+
+
+$_LANG['company_intro_content'] = 'WING ON NEW GROUP CANADA INC. is a North American leading company in global food, consumer products and its design, manufacture, trade and services. Our dedicated team has built the long-term strategic partnership with the international leading corporations to research and develop the food and consumer products worldwide. We sell world-class brand products and we also design and manufacture the self-owned brand consumer products such as POLAR BEAR and TIGER KING with the premium quality and superior value.';
 ?>

@@ -14,6 +14,8 @@
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{$ecs_awesome_font_css_path}">
+<link rel="stylesheet" href="{$ecs_bootstrap_css_path}">
+<link rel="stylesheet" href="{$ecs_bootstrap_theme_css_path}">
 <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
 {* 包含脚本文件 *}
 {insert_scripts files='common.js,index.js,jquery.js,jquery.lazyload.js,jssor.js,jssor.slider.js,vertical_nav.js,onload.js'}
@@ -75,9 +77,9 @@
                     $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
                     $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
                     $SpacingX: 8,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
-                    $SpacingY: 8,                                   //[Optional] Vertical space between each item in pixel, default value is 0
+                    $SpacingY: 100,                                   //[Optional] Vertical space between each item in pixel, default value is 0
                     $Orientation: 1,                                //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
-                    $Scale: false                                   //Scales bullets navigator or not while slider scale
+                    $Scale: true                                   //Scales bullets navigator or not while slider scale
                 },
 
                 $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
@@ -151,7 +153,7 @@
             .jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
         </style>
         <!-- bullet navigator container -->
-        <div u="navigator" class="jssorb21" style="position: absolute; bottom: 26px; left: 6px;">
+        <div u="navigator" class="jssorb21" style="position: absolute; bottom:26px; left: 6px;">
             <!-- bullet navigator item prototype -->
             <div u="prototype" style="POSITION: absolute; WIDTH: 19px; HEIGHT: 19px; text-align:center; line-height:19px; color:White; font-size:12px;"></div>
         </div>
@@ -212,7 +214,8 @@
 
 
 
-
+<div class="block" style="height:80px;">
+</div>
 
 
 
@@ -221,18 +224,33 @@
 
 
 <div id="index_second_row_wrap" style="margin-bottom:10px;">
-<div class="container">
+<div class="cell-container">
 <!--动态新闻-->
-<div class="col grid3 pct" style="">
-<div class="feature"><a class="icon icon-news" href="#"></a><h3>Easy Setup</h3><p class="small">Easiest and quickest way to create a website very fast.</p></div>
+<div class="cell middle-area" style="">
+<div class="char"><a class="icon icon-news" href="#"></a>
+<div class="cell-content">
+<span class="cell-content-span">{$_LANG.dynamic_news}</span>
+<p class="cell-content-p">Easiest and quickest way to create a website very fast.</p>
+</div>
+</div>
 </div>
 <!--关于我们-->
-<div class="col grid3 pct" style="">
-<div class="feature"><a class="icon icon-company" href="#"></a><h3>Valid HTML5</h3><p class="small">We offer W3C validated files on all of our HTML5 themes.</p></div>
+<div class="cell middle-area" style="">
+<div class="char"><a class="icon icon-company" href="#"></a>
+<div class="cell-content">
+<span class="cell-content-span">{$_LANG.company_intro}</span>
+<p class="cell-content-p">{$_LANG.company_intro_content}</p>
+</div>
+</div>
 </div>
 <!--联系表单-->
-<div class="col grid3 pct" style="">
-<div class="feature"><a class="icon icon-contact-form" href="#"></a><h3>Pixel Perfect</h3><p class="small">Based on a 12 column grid system, with every pixel in place.</p></div>
+<div class="cell middle-area" style="">
+<div class="char"><a class="icon icon-contact-form" href="#"></a>
+<div class="cell-content">
+<span class="cell-content-span">{$_LANG.contact_us}</span>
+<p class="cell-content-p" >{$_LANG.}</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -254,7 +272,8 @@ jQuery('.icon-settings').mouseout(function() {
 
 
 
-
+<div class="block" style="height:80px;">
+</div>
 
 
 
