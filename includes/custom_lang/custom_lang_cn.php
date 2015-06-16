@@ -733,10 +733,17 @@ $_LANG['company_intro'] = '公司简介';
 $_LANG['contact_us'] = '联系我们';
 
 
-$_LANG['company_intro_content'] = 'WING ON是一间根植于北美的国际性食品、消费品设计、生产、贸易和服务公司，我们在全世界范围内与在食品、消费品研发生产领域的卓越机构结成战略合作伙伴关系，生产POLAR BEAR ，TIGER KING等自主品牌的优质超值产品并代理欧美优质名牌产品在全球范围内销售。';
+$_LANG['company_intro_content'] = 'WING ON 是一间根植于北美的国际性食品、消费品设计、生产、贸易和服务公司，我们在全世界范围内与在食品、消费品研发生产领域的卓越机构结成战略合作伙伴关系，生产POLAR BEAR ，TIGER KING等自主品牌的优质超值产品并代理欧美优质名牌产品在全球范围内销售。';
 
-
-
+// 联系我们表单 //
+$_LANG['contact_form_name'] = '姓名';
+$_LANG['contact_form_name_placeholder'] = '约翰';
+$_LANG['contact_form_email'] = '电邮';
+$_LANG['contact_form_subject'] = '主题';
+$_LANG['contact_form_subject_placeholder'] = '询问';
+$_LANG['contact_form_content'] = '内容';
+$_LANG['contact_form_content_placeholder'] = '您好，我想请问一些 ...';
+$_LANG['contact_form_submit'] = '提交';
 
 
 

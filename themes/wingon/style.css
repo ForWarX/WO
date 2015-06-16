@@ -227,11 +227,11 @@ overflow: auto;
 .char .cell-content{
 	width:70%;
 }
-.char .cell-content .cell-content-span{
+.char .cell-content .cell-content-div{
  font-size:1.8em;
- margin-bottom:10%;
+ margin-bottom:5%;
 }
-.char .cell-content .cell-content-p{
+.char .cell-content .cell-content-p, .contact-info{
  text-align:justify;
  font-size: 1.1em;
 }
@@ -276,7 +276,12 @@ background-color:#000;
 }
 
 
-
+.contact-form-div{  
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding-bottom: 3%;
+  width: 100%;
+  }
 
 
 

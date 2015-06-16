@@ -13,9 +13,6 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="{$ecs_awesome_font_css_path}">
-<link rel="stylesheet" href="{$ecs_bootstrap_css_path}">
-<link rel="stylesheet" href="{$ecs_bootstrap_theme_css_path}">
 <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
 {* 包含脚本文件 *}
 {insert_scripts files='common.js,index.js,jquery.js,jquery.lazyload.js,jssor.js,jssor.slider.js,vertical_nav.js,onload.js'}
@@ -229,7 +226,7 @@
 <div class="cell middle-area" style="">
 <div class="char"><a class="icon icon-news" href="#"></a>
 <div class="cell-content">
-<span class="cell-content-span">{$_LANG.dynamic_news}</span>
+<div class="cell-content-div">{$_LANG.dynamic_news}</div>
 <p class="cell-content-p">Easiest and quickest way to create a website very fast.</p>
 </div>
 </div>
@@ -238,17 +235,136 @@
 <div class="cell middle-area" style="">
 <div class="char"><a class="icon icon-company" href="#"></a>
 <div class="cell-content">
-<span class="cell-content-span">{$_LANG.company_intro}</span>
+<div class="cell-content-div">{$_LANG.company_intro}</div>
 <p class="cell-content-p">{$_LANG.company_intro_content}</p>
 </div>
 </div>
 </div>
 <!--联系表单-->
 <div class="cell middle-area" style="">
-<div class="char"><a class="icon icon-contact-form" href="#"></a>
+<div class="char"><a class="icon icon-contact-form" onclick="scrollToElement('contact-form')"></a>
 <div class="cell-content">
-<span class="cell-content-span">{$_LANG.contact_us}</span>
-<p class="cell-content-p" >{$_LANG.}</p>
+<div class="cell-content-div">{$_LANG.contact_us}</div>
+<div class="contact-form-div">
+<form id="contact-form" class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+
+
+<!-- Text input-->
+<div class="control-group">
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr height="10"><td colspan="4"></td></tr>
+<tr>
+<td style="width:5%;">
+</td>
+<td style="text-align:left;width:20%;vertical-align:top;">
+  <label class="control-label" for="contact-name"><i class="fa fa-user"></i>&nbsp;{$_LANG.contact_form_name}</label>
+</td>
+<td style="text-align:right;">
+  <div class="controls">
+    <input id="contact-name" name="contact-name" type="text" placeholder="{$_LANG.contact_form_name_placeholder}" class="input" style="width: 80%;">
+    
+  </div>
+</td>
+<td style="width:5%;">
+</td>
+</tr>
+<tr height="10"><td colspan="4"></td></tr>
+</table> 
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr>
+<td style="width:5%;">
+</td>
+<td style="text-align:left;width:20%;vertical-align:top;">
+  <label class="control-label" for="contact-email"><i class="fa fa-envelope"></i>&nbsp;{$_LANG.contact_form_email}</label>
+</td>
+<td style="text-align:right;">
+  <div class="controls">
+    <input id="contact-email" name="contact-email" type="text" placeholder="John@mail.com" class="input" style="width: 80%;">
+    
+  </div>
+</td>
+<td style="width:5%;">
+</td>
+</tr>
+<tr height="10"><td colspan="4"></td></tr>
+</table>  
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr>
+<td style="width:5%;">
+</td>
+<td style="text-align:left;width:20%;vertical-align:top;">
+  <label class="control-label" for="contact-subject"><i class="fa fa-pencil"></i>&nbsp;{$_LANG.contact_form_subject}</label>
+</td>
+<td style="text-align:right;">
+  <div class="controls">
+    <input id="contact-subject" name="contact-subject" type="text" placeholder="{$_LANG.contact_form_subject_placeholder}" class="input" style="width: 80%;">
+    
+  </div>
+</td>
+<td style="width:5%;">
+</td>
+</tr>
+<tr height="10"><td colspan="4"></td></tr>
+</table> 
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr>
+<td style="width:5%;">
+</td>
+<td style="text-align:left;width:20%;vertical-align:top;">
+  <label class="control-label" for="contact-content"><i class="fa fa-pencil-square-o"></i>&nbsp;{$_LANG.contact_form_content}</label>
+</td>
+<td style="text-align:right;">
+  <div class="controls">                     
+    <textarea id="contact-content" name="contact-content"  style="width: 80%;" placeholder="{$_LANG.contact_form_content_placeholder}"></textarea>
+  </div>
+</td>
+<td style="width:5%;">
+</td>
+</tr>
+<tr height="10"><td colspan="4"></td></tr>
+</table> 
+</div>
+
+<!-- Button -->
+<div class="control-group">
+<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
+<tr>
+<td style="width:5%;">
+</td>
+<td style="text-align:left;width:20%;vertical-align:top;">
+  <label class="control-label" for="contact-submit"></label>
+</td>
+<td style="text-align:right;">
+  <div class="controls">
+    <button id="contact-submit" name="contact-submit" class="btn btn-default">{$_LANG.contact_form_submit}</button>
+  </div>
+</td>
+<td style="width:5%;">
+</td>
+</tr>
+<tr height="10"><td colspan="4"></td></tr>
+</table> 
+</div>
+
+</fieldset>
+</form>
+</div>
+
 </div>
 </div>
 </div>
@@ -281,7 +397,20 @@ jQuery('.icon-settings').mouseout(function() {
 
 
 
-
+<div id="index_third_row_wrap">
+<section id="map">
+<div class="map-frame" style="/*width:90%;margin:0 auto;*/">
+<iframe width="100%" height="490" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?q=351+ferrier+street+unit+6&amp;ie=UTF8&amp;hq=&amp;hnear=351+Ferrier+St+%236,+Markham,+Ontario+L3R+2Z5&amp;gl=ca&amp;t=m&amp;ll=43.820657,-79.330559&amp;spn=0.121378,0.384521&amp;z=12&amp;iwloc=A&amp;output=embed"></iframe><br><small><a href="https://maps.google.ca/maps?q=351+ferrier+street+unit+6&amp;ie=UTF8&amp;hq=&amp;hnear=351+Ferrier+St+%236,+Markham,+Ontario+L3R+2Z5&amp;gl=ca&amp;t=m&amp;ll=43.820657,-79.330559&amp;spn=0.121378,0.384521&amp;z=12&amp;iwloc=A&amp;source=embed"></iframe>
+</div>
+</section>
+<div class="contact-info" style="padding:2%;font-size:1.2em;">
+Address: Unit 6, 351 Ferrier Street, Markham. ON. L3R5Z2
+<br>
+Phone: (905) 604-4677 
+<br>
+Email: sales@wingon.ca
+</div>
+</div>
 
 
 

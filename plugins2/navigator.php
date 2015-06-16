@@ -117,8 +117,8 @@ elseif ($_REQUEST['act'] == 'edit')
         $rt = array('act'=>'edit','id'=>$id);
         $row = $db->getRow("SELECT * FROM " . $GLOBALS['ecs']->table('nav') . " WHERE id='$id'");
         $rt['item_name'] = $row['name'];
-        $rt['item_cht_name'] = $row['cht_name'];
-        $rt['item_en_name'] = $row['en_name'];
+        $rt['item_cht_name'] = $row['name_cht'];
+        $rt['item_en_name'] = $row['name_en'];
         $rt['item_url'] = $row['url'];
         $rt['item_vieworder'] = $row['vieworder'];
         $rt['item_ifshow_'.$row['ifshow']] = 'selected';
@@ -192,7 +192,7 @@ elseif ($_REQUEST['act'] == 'edit')
             }
 
             $sql = "UPDATE " . $GLOBALS['ecs']->table('nav') .
-                " SET name='$item_name',name_cht='$item_cht_name',name_in='$item_en_name',ctype='',cid='',ifshow='$item_ifshow',vieworder='$item_vieworder',opennew='$item_opennew',url='$item_url',type='$item_type' WHERE id='$id'";
+                " SET name='$item_name',name_cht='$item_cht_name',name_en='$item_en_name',ctype='',cid='',ifshow='$item_ifshow',vieworder='$item_vieworder',opennew='$item_opennew',url='$item_url',type='$item_type' WHERE id='$id'";
         }
 
 

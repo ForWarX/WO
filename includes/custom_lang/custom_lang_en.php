@@ -732,4 +732,15 @@ $_LANG['contact_us'] = 'Contact Us';
 
 
 $_LANG['company_intro_content'] = 'WING ON NEW GROUP CANADA INC. is a North American leading company in global food, consumer products and its design, manufacture, trade and services. Our dedicated team has built the long-term strategic partnership with the international leading corporations to research and develop the food and consumer products worldwide. We sell world-class brand products and we also design and manufacture the self-owned brand consumer products such as POLAR BEAR and TIGER KING with the premium quality and superior value.';
+
+// 联系我们表单 //
+$_LANG['contact_form_name'] = 'Name';
+$_LANG['contact_form_name_placeholder'] = 'John';
+$_LANG['contact_form_email'] = 'Email';
+$_LANG['contact_form_subject'] = 'Subject';
+$_LANG['contact_form_subject_placeholder'] = 'Info';
+$_LANG['contact_form_content'] = 'Content';
+$_LANG['contact_form_content_placeholder'] = 'Hi, I am wondering ...';
+$_LANG['contact_form_submit'] = 'Submit';
+
 ?>

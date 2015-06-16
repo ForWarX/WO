@@ -4,6 +4,9 @@
 
 jQuery(document).ready(function($){
 	slidersize();
+	
+	
+	
 });
 jQuery(window).resize(function(e) {
 	slidersize();
@@ -48,7 +51,17 @@ function slidersize(){
 }
 
 
-
+	
+function scrollToElement( id ) {
+	var target = document.getElementById(id);
+    var topoffset = 30;
+    var speed = 800;
+    var destination = jQuery( target ).offset().top - topoffset;
+    jQuery( 'html:not(:animated),body:not(:animated)' ).animate( { scrollTop: destination}, speed, function() {
+        window.location.hash = target;
+    });
+    return false;
+}
 
 
 
