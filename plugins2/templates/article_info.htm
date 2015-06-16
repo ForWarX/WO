@@ -17,7 +17,11 @@
       <tr>
         <td class="narrow-label">{$lang.title}</td>
         <td><input type="text" name="title" size ="40" maxlength="60" value="{$article.title|escape}" />{$lang.require_field}</td>
-      </tr>          
+      </tr>  
+      <tr>
+        <td class="narrow-label">{$lang.title_en}</td>
+        <td><input type="text" name="title_en" size ="40" maxlength="60" value="{$article.title_en|escape}" /></td>
+      </tr>        
       <!-- {if $article.cat_id >= 0} -->
       <tr>
         <td class="narrow-label">{$lang.cat} </td>
@@ -66,6 +70,10 @@
         <td><textarea name="description" id="description" cols="40" rows="5">{$article.description|escape}</textarea></td>
       </tr>
       <tr>
+        <td class="narrow-label">{$lang.lable_description_en}</td>
+        <td><textarea name="description_en" id="description_en" cols="40" rows="5">{$article.description_en|escape}</textarea></td>
+      </tr>
+      <tr>
         <td class="narrow-label">{$lang.external_links}</td>
         <td><input name="link_url" type="text" id="link_url" value="{if $article.link neq ''}{$article.link|escape}{else}http://{/if}" maxlength="60" /></td>
       </tr>
@@ -79,10 +87,20 @@
     </table>
 
     <table width="90%" id="detail-table" style="display:none">
-     <tr><td>{$umeditor}</td></tr>
+	 <tr>
+			<td>{$lang.lable_content_cn}</td>
+	</tr>
+     <tr>
+		 <td>{$umeditor}</td>
+	 </tr>
     </table>
     <table width="90%" id="detail-table" style="display:none">
-     <tr><td>{$umeditor2}</td></tr>
+	<tr>
+			<td>{$lang.lable_content_en}</td>
+	</tr>
+     <tr>
+		 <td>{$umeditor2}</td>
+	 </tr>
     </table>
 
     <table width="90%" id="goods-table" style="display:none">

@@ -61,6 +61,7 @@ $_LANG['all_type'] = '全部推荐';
 $_LANG['sort_order'] = '推荐排序';
 
 $_LANG['goods_name'] = '商品名称';
+//$_LANG['ggods_name_en'] = '商品名称 (EN)'
 $_LANG['goods_sn'] = '货号';
 $_LANG['shop_price'] = '价格';
 $_LANG['is_on_sale'] = '上架';
@@ -100,6 +101,7 @@ $_LANG['tab_groupgoods'] = '配件';
 $_LANG['tab_article'] = '关联文章';
 
 $_LANG['lab_goods_name'] = '商品名称：';
+$_LANG['lab_goods_name_en'] = '商品名称 (EN)：';
 $_LANG['lab_goods_sn'] = '商品货号：';
 $_LANG['lab_goods_cat'] = '商品分类：';
 $_LANG['lab_other_cat'] = '扩展分类：';
@@ -119,6 +121,9 @@ $_LANG['lab_seller_note'] = '商家备注：';
 $_LANG['lab_goods_type'] = '商品类型：';
 $_LANG['lab_picture_url'] = '商品图片外部URL';
 $_LANG['lab_thumb_url'] = '商品缩略图外部URL';
+
+$_LANG['lab_desc_cn'] = '中文';
+$_LANG['lab_desc_en'] = '英文';
 
 $_LANG['lab_goods_weight'] = '商品总量：';
 $_LANG['unit_g'] = '克';

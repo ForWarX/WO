@@ -9,6 +9,7 @@
 */
 
 $_LANG['title'] ='文章标题';
+$_LANG['title_en'] ='文章标题 (EN)';
 $_LANG['cat'] ='文章分类';
 $_LANG['reserve'] = '保留';
 $_LANG['article_type'] ='文章重要性';
@@ -16,7 +17,10 @@ $_LANG['author'] ='文章作者';
 $_LANG['email'] ='作者email';
 $_LANG['keywords'] ='关键字';
 $_LANG['lable_description'] ='网页描述';
+$_LANG['lable_description_en'] ='网页描述 (EN)';
 $_LANG['content'] ='文章内容';
+$_LANG['lable_content_cn'] = '中文';
+$_LANG['lable_content_en'] = '英文';
 $_LANG['is_open'] ='是否显示';
 $_LANG['article_id'] ='编号';
 $_LANG['add_time'] ='添加日期';
@@ -47,6 +51,7 @@ $_LANG['move_to'] = '转移到分类';
 $_LANG['article_edit'] = '编辑文章内容';
 $_LANG['tab_general'] = '通用信息';
 $_LANG['tab_content'] = '文章内容';
+$_LANG['tab_content_en'] = '文章内容 (EN)';
 $_LANG['tab_goods'] = '关联商品';
 
 $_LANG['link_goods'] = '跟该文章关联的商品';
