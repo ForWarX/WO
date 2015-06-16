@@ -140,7 +140,7 @@ $(document).ready(function(){
 		<ul id="invisible-menu" aria-expanded="false" class="nav-menu-1">		
         <!-- {foreach name=no from=$navigator_list.middle item=nav } -->
 		<li class="page_item">
-		<a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}    >{$nav.name}<!-- {if $nav.name eq '促销活动' || $nav.name eq '特别专区' || $nav.name eq '会员中心'}--><i class="icomoon-arrow-down-15"></i><!--{/if}--></a>
+		<a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}    ><span>{$nav.name}</span><!-- {if $nav.name eq '促销活动' || $nav.name eq '特别专区' || $nav.name eq '会员中心'}--><i class="icomoon-arrow-down-15"></i><!--{/if}--></a>
         </li>
         <!-- {/foreach} -->
 		</ul>
