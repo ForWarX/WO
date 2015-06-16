@@ -110,7 +110,7 @@ if ($_REQUEST['act'] == 'add')
 //-- 添加文章
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'insert')
-{	showr($_REQUEST);
+{	//showr($_REQUEST);
     /* 权限判断 */
     admin_priv('article_manage');
 
@@ -152,7 +152,7 @@ if ($_REQUEST['act'] == 'insert')
     }
     else
     {
-        $open_type = $_POST['editorValue'] == '' ? 1 : 2;
+        $open_type = $_POST['editor_cn'] == '' ? 1 : 2;
     }
 
     /*插入数据*/
@@ -161,11 +161,11 @@ if ($_REQUEST['act'] == 'insert')
     {
         $_POST['cat_id'] = 0;
     }
-    $sql = "INSERT INTO ".$ecs->table('article')."(title, cat_id, article_type, is_open, author, ".
-                "author_email, keywords, content, add_time, file_url, open_type, link, description) ".
-            "VALUES ('$_POST[title]', '$_POST[article_cat]', '$_POST[article_type]', '$_POST[is_open]', ".
-                "'$_POST[author]', '$_POST[author_email]', '$_POST[keywords]', '$_POST[editorValue]', ".
-                "'$add_time', '$file_url', '$open_type', '$_POST[link_url]', '$_POST[description]')";
+    $sql = "INSERT INTO ".$ecs->table('article')."(title, title_en, cat_id, article_type, is_open, author, ".
+                "author_email, keywords, content, content_en, add_time, file_url, open_type, link, description, description_en) ".
+            "VALUES ('$_POST[title]', '$_POST[title_en]', '$_POST[article_cat]', '$_POST[article_type]', '$_POST[is_open]', ".
+                "'$_POST[author]', '$_POST[author_email]', '$_POST[keywords]', '$_POST[editor_cn]', '$_POST[editor_en]', ".
+                "'$add_time', '$file_url', '$open_type', '$_POST[link_url]', '$_POST[description]', '$_POST[description_en]')";
     $db->query($sql);
 
     /* 处理关联商品 */
@@ -199,7 +199,7 @@ if ($_REQUEST['act'] == 'edit')
     $article = $db->GetRow($sql);
 
     /* 创建 html editor */
-    create_html_editor('FCKeditor1',$article['content']);
+    create_html_editor('FCKeditor1',$article['content'], $article['content_en']);
 
     /* 取得分类、品牌 */
     $smarty->assign('goods_cat_list', cat_list());
@@ -268,7 +268,7 @@ if ($_REQUEST['act'] =='update')
     }
     else
     {
-        $open_type = $_POST['editorValue'] == '' ? 1 : 2;
+        $open_type = $_POST['editor_cn'] == '' ? 1 : 2;
     }
 
     /* 如果 file_url 跟以前不一样，且原来的文件是本地文件，删除原来的文件 */
@@ -279,7 +279,7 @@ if ($_REQUEST['act'] =='update')
         @unlink(ROOT_PATH . $old_url);
     }
 
-    if ($exc->edit("title='$_POST[title]', cat_id='$_POST[article_cat]', article_type='$_POST[article_type]', is_open='$_POST[is_open]', author='$_POST[author]', author_email='$_POST[author_email]', keywords ='$_POST[keywords]', file_url ='$file_url', open_type='$open_type', content='$_POST[editorValue]', link='$_POST[link_url]', description = '$_POST[description]'", $_POST['id']))
+    if ($exc->edit("title='$_POST[title]', title_en='$_POST[title_en]', cat_id='$_POST[article_cat]', article_type='$_POST[article_type]', is_open='$_POST[is_open]', author='$_POST[author]', author_email='$_POST[author_email]', keywords ='$_POST[keywords]', file_url ='$file_url', open_type='$open_type', content='$_POST[editor_cn]', content_en='$_POST[editor_en]', link='$_POST[link_url]', description = '$_POST[description]', description_en = '$_POST[description_en]'",  $_POST['id']))
     {
         $link[0]['text'] = $_LANG['back_list'];
         $link[0]['href'] = 'article.php?act=list&' . list_link_postfix();

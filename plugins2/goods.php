@@ -429,7 +429,9 @@ elseif ($_REQUEST['act'] == 'add' || $_REQUEST['act'] == 'edit' || $_REQUEST['ac
     $goods_name_style = explode('+', empty($goods['goods_name_style']) ? '+' : $goods['goods_name_style']);
 
     /* 创建 html editor */
-    create_html_editor('goods_desc', $goods['goods_desc']);
+    //create_html_editor('goods_desc', $goods['goods_desc'], $goods['goods_desc_en']);
+    create_html_editor('FCKeditor');
+	
 
     /* 模板赋值 */
     $smarty->assign('code',    $code);
@@ -490,7 +492,8 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
 {
     $code = empty($_REQUEST['extension_code']) ? '' : trim($_REQUEST['extension_code']);
 
-    $_POST['goods_desc'] = $_POST['editorValue'];
+    $_POST['goods_desc'] = $_POST['editor_cn'];
+    $_POST['goods_desc_en'] = $_POST['editor_en'];
 	
 	/* 是否处理缩略图 */
     $proc_thumb = (isset($GLOBALS['shop_id']) && $GLOBALS['shop_id'] > 0)? false : true;
@@ -1049,12 +1052,12 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
     {
         if ($code == '')
         {
-            $sql = "INSERT INTO " . $ecs->table('goods') . " (goods_name, goods_name_style, goods_sn, " .
+            $sql = "INSERT INTO " . $ecs->table('goods') . " (goods_name, goods_name_en, goods_name_style, goods_sn, " .
                     "cat_id, brand_id, shop_price, market_price, is_promote, promote_price, " .
                     "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief, " .
                     "seller_note, goods_weight, goods_number, warn_number, integral, give_integral, is_best, is_new, is_hot, " .
                     "is_on_sale, is_alone_sale, is_shipping, goods_desc, add_time, last_update, goods_type, rank_integral, suppliers_id, use_img, original_use_img)" .
-                "VALUES ('$_POST[goods_name]', '$goods_name_style', '$goods_sn', '$catgory_id', " .
+                "VALUES ('$_POST[goods_name]', '$_POST[goods_name_en]', '$goods_name_style', '$goods_sn', '$catgory_id', " .
                     "'$brand_id', '$shop_price', '$market_price', '$is_promote','$promote_price', ".
                     "'$promote_start_date', '$promote_end_date', '$goods_img', '$goods_thumb', '$original_img', ".
                     "'$_POST[keywords]', '$_POST[goods_brief]', '$_POST[seller_note]', '$goods_weight', '$goods_number',".
@@ -1063,12 +1066,12 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
         }
         else
         {
-            $sql = "INSERT INTO " . $ecs->table('goods') . " (goods_name, goods_name_style, goods_sn, " .
+            $sql = "INSERT INTO " . $ecs->table('goods') . " (goods_name, goods_name_en, goods_name_style, goods_sn, " .
                     "cat_id, brand_id, shop_price, market_price, is_promote, promote_price, " .
                     "promote_start_date, promote_end_date, goods_img, goods_thumb, original_img, keywords, goods_brief, " .
                     "seller_note, goods_weight, goods_number, warn_number, integral, give_integral, is_best, is_new, is_hot, is_real, " .
                     "is_on_sale, is_alone_sale, is_shipping, goods_desc, add_time, last_update, goods_type, extension_code, rank_integral, use_img, original_use_img)" .
-                "VALUES ('$_POST[goods_name]', '$goods_name_style', '$goods_sn', '$catgory_id', " .
+                "VALUES ('$_POST[goods_name]', '$_POST[goods_name_en]', '$goods_name_style', '$goods_sn', '$catgory_id', " .
                     "'$brand_id', '$shop_price', '$market_price', '$is_promote','$promote_price', ".
                     "'$promote_start_date', '$promote_end_date', '$goods_img', '$goods_thumb', '$original_img', ".
                     "'$_POST[keywords]', '$_POST[goods_brief]', '$_POST[seller_note]', '$goods_weight', '$goods_number',".
@@ -1103,6 +1106,7 @@ elseif ($_REQUEST['act'] == 'insert' || $_REQUEST['act'] == 'update')
         $sql = "UPDATE " . $ecs->table('goods') . " SET " .
                 "goods_name = '$_POST[goods_name]', " .
                 "goods_name_style = '$goods_name_style', " .
+				"goods_name_en = '$_POST[goods_name_en]', " .
                 "goods_sn = '$goods_sn', " .
                 "cat_id = '$catgory_id', " .
                 "brand_id = '$brand_id', " .
@@ -1767,7 +1771,13 @@ elseif ($_REQUEST['act'] == 'edit_goods_name')
         clear_cache_files();
         make_json_result(stripslashes($goods_name));
     }
+    if ($exc->edit("goods_name_en= '$_POST[goods_name_en]', last_update=" .gmtime(), $goods_id))
+    {
+        clear_cache_files();
+        make_json_result(stripslashes($goods_name_en));
+    }
 }
+
 
 /*------------------------------------------------------ */
 //-- 修改商品货号
@@ -2662,7 +2672,7 @@ elseif ($_REQUEST['act'] == 'product_list')
     }
 
     /* 取出商品信息 */
-    $sql = "SELECT goods_sn, goods_name, goods_type, shop_price FROM " . $ecs->table('goods') . " WHERE goods_id = '$goods_id'";
+    $sql = "SELECT goods_sn, goods_name, goods_name_en, goods_type, shop_price FROM " . $ecs->table('goods') . " WHERE goods_id = '$goods_id'";
     $goods = $db->getRow($sql);
     if (empty($goods))
     {
@@ -2672,6 +2682,7 @@ elseif ($_REQUEST['act'] == 'product_list')
     $smarty->assign('sn', sprintf($_LANG['good_goods_sn'], $goods['goods_sn']));
     $smarty->assign('price', sprintf($_LANG['good_shop_price'], $goods['shop_price']));
     $smarty->assign('goods_name', sprintf($_LANG['products_title'], $goods['goods_name']));
+    //$smarty->assign('goods_name_en', sprintf($_LANG['products_title'], $goods['goods_name_en']));
     $smarty->assign('goods_sn', sprintf($_LANG['products_title_2'], $goods['goods_sn']));
 
 

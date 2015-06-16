@@ -17,7 +17,11 @@
       <tr>
         <td class="narrow-label"><?php echo $this->_var['lang']['title']; ?></td>
         <td><input type="text" name="title" size ="40" maxlength="60" value="<?php echo htmlspecialchars($this->_var['article']['title']); ?>" /><?php echo $this->_var['lang']['require_field']; ?></td>
-      </tr>          
+      </tr>  
+      <tr>
+        <td class="narrow-label"><?php echo $this->_var['lang']['title_en']; ?></td>
+        <td><input type="text" name="title_en" size ="40" maxlength="60" value="<?php echo htmlspecialchars($this->_var['article']['title_en']); ?>" /></td>
+      </tr>        
       <!-- <?php if ($this->_var['article']['cat_id'] >= 0): ?> -->
       <tr>
         <td class="narrow-label"><?php echo $this->_var['lang']['cat']; ?> </td>
@@ -66,6 +70,10 @@
         <td><textarea name="description" id="description" cols="40" rows="5"><?php echo htmlspecialchars($this->_var['article']['description']); ?></textarea></td>
       </tr>
       <tr>
+        <td class="narrow-label"><?php echo $this->_var['lang']['lable_description_en']; ?></td>
+        <td><textarea name="description_en" id="description_en" cols="40" rows="5"><?php echo htmlspecialchars($this->_var['article']['description_en']); ?></textarea></td>
+      </tr>
+      <tr>
         <td class="narrow-label"><?php echo $this->_var['lang']['external_links']; ?></td>
         <td><input name="link_url" type="text" id="link_url" value="<?php if ($this->_var['article']['link'] != ''): ?><?php echo htmlspecialchars($this->_var['article']['link']); ?><?php else: ?>http://<?php endif; ?>" maxlength="60" /></td>
       </tr>
@@ -79,10 +87,20 @@
     </table>
 
     <table width="90%" id="detail-table" style="display:none">
-     <tr><td><?php echo $this->_var['umeditor']; ?></td></tr>
+	 <tr>
+			<td><?php echo $this->_var['lang']['lable_content_cn']; ?></td>
+	</tr>
+     <tr>
+		 <td><?php echo $this->_var['umeditor']; ?></td>
+	 </tr>
     </table>
     <table width="90%" id="detail-table" style="display:none">
-     <tr><td><?php echo $this->_var['umeditor2']; ?></td></tr>
+	<tr>
+			<td><?php echo $this->_var['lang']['lable_content_en']; ?></td>
+	</tr>
+     <tr>
+		 <td><?php echo $this->_var['umeditor2']; ?></td>
+	 </tr>
     </table>
 
     <table width="90%" id="goods-table" style="display:none">

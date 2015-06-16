@@ -1,16 +1,16 @@
 <!-- $Id: goods_info.htm 17126 2010-04-23 10:30:26Z liuhui $ -->
-{include file="pageheader.htm"}
-{insert_scripts files="../js/utils.js,selectzone.js,colorselector.js"}
-<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<?php echo $this->fetch('pageheader.htm'); ?>
+<?php echo $this->smarty_insert_scripts(array('files'=>'../js/utils.js,selectzone.js,colorselector.js')); ?>
+<script type="text/javascript" src="../js/calendar.php?lang=<?php echo $this->_var['cfg_lang']; ?>"></script>
 <link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
 
 
 
-{if $warning}
+<?php if ($this->_var['warning']): ?>
 <ul style="padding:0; margin: 0; list-style-type:none; color: #CC0000;">
-  <li style="border: 1px solid #CC0000; background: #FFFFCC; padding: 10px; margin-bottom: 5px;" >{$warning}</li>
+  <li style="border: 1px solid #CC0000; background: #FFFFCC; padding: 10px; margin-bottom: 5px;" ><?php echo $this->_var['warning']; ?></li>
 </ul>
-{/if}
+<?php endif; ?>
 
 
 
@@ -21,58 +21,58 @@
 				<a href="#section1" data-number="1">
 					<!--<span class="cd-dot"></span>-->
 					<!--<span class="cd-label"></span>-->
-					<span class="navigator">1 &nbsp;&nbsp;{$lang.tab_general}</span>
+					<span class="navigator">1 &nbsp;&nbsp;<?php echo $this->_var['lang']['tab_general']; ?></span>
 				</a>
 			</li>
 			<li>
 				<a href="#section2" data-number="2">
 					<!--<span class="cd-dot"></span>-->
 					<!--<span class="cd-label"></span>-->
-					<span class="navigator">2 &nbsp;&nbsp;{$lang.tab_detail}</span>
+					<span class="navigator">2 &nbsp;&nbsp;<?php echo $this->_var['lang']['tab_detail']; ?></span>
 				</a>
 			</li>
 			<li>
 				<a href="#section3" data-number="3">
 					<!--<span class="cd-dot"></span>-->
 					<!--<span class="cd-label"></span>-->
-					<span class="navigator">3 &nbsp;&nbsp;{$lang.tab_mix}</span>
+					<span class="navigator">3 &nbsp;&nbsp;<?php echo $this->_var['lang']['tab_mix']; ?></span>
 				</a>
-			</li>{if $goods_type_list}
+			</li><?php if ($this->_var['goods_type_list']): ?>
 			<li>
 				<a href="#section4" data-number="4">
 					<!--<span class="cd-dot"></span>-->
 					<!--<span class="cd-label"></span>-->
-					<span class="navigator">4 &nbsp;&nbsp;{$lang.tab_properties}</span>
+					<span class="navigator">4 &nbsp;&nbsp;<?php echo $this->_var['lang']['tab_properties']; ?></span>
 				</a>
-			</li>{/if}
+			</li><?php endif; ?>
 			<li>
 				<a href="#section5" data-number="5">
 					<!--<span class="cd-dot"></span>-->
 					<!--<span class="cd-label"></span>-->
-					<span class="navigator">5 &nbsp;&nbsp;{$lang.tab_gallery}</span>
+					<span class="navigator">5 &nbsp;&nbsp;<?php echo $this->_var['lang']['tab_gallery']; ?></span>
 				</a>
 			</li>
 			<li>
 				<a href="#section6" data-number="6">
 					<!--<span class="cd-dot"></span>-->
 					<!--<span class="cd-label"></span>-->
-					<span class="navigator optional_nav">6 &nbsp;&nbsp;{$lang.tab_linkgoods}</span>
+					<span class="navigator optional_nav">6 &nbsp;&nbsp;<?php echo $this->_var['lang']['tab_linkgoods']; ?></span>
 				</a>
 			</li>
-			{if $code eq ''}
+			<?php if ($this->_var['code'] == ''): ?>
 			<li>
 				<a href="#section7" data-number="7">
 					<!--<span class="cd-dot"></span>-->
 					<!--<span class="cd-label"></span>-->
-					<span class="navigator optional_nav">7 &emsp;&emsp;&nbsp;&nbsp;{$lang.tab_groupgoods}</span>
+					<span class="navigator optional_nav">7 &emsp;&emsp;&nbsp;&nbsp;<?php echo $this->_var['lang']['tab_groupgoods']; ?></span>
 				</a>
 			</li>
-			{/if}
+			<?php endif; ?>
 			<li>
 				<a href="#section8" data-number="8">
 					<!--<span class="cd-dot"></span>-->
 					<!--<span class="cd-label"></span>-->
-					<span class="navigator optional_nav">8 &nbsp;&nbsp;{$lang.tab_article}</span>
+					<span class="navigator optional_nav">8 &nbsp;&nbsp;<?php echo $this->_var['lang']['tab_article']; ?></span>
 				</a>
 			</li>
 			<li>
@@ -101,13 +101,13 @@
 			</li>
 			<li>
 				<div style="margin-bottom:5px;">
-				<input type="reset" onclick="document.getElementById('goods_form_').reset();" value="{$lang.button_reset}" class="goods_info_button" />
+				<input type="reset" onclick="document.getElementById('goods_form_').reset();" value="<?php echo $this->_var['lang']['button_reset']; ?>" class="goods_info_button" />
 				</div>
 			</li>
 			
 			<li>
 				<div style="margin-bottom:10px;">
-				<input type="button" value="{$lang.button_submit}" class="goods_info_button" onclick="validate('{$goods.goods_id}')" style=""/>
+				<input type="button" value="<?php echo $this->_var['lang']['button_submit']; ?>" class="goods_info_button" onclick="validate('<?php echo $this->_var['goods']['goods_id']; ?>')" style=""/>
 				</div>
 			</li>
 		
@@ -153,14 +153,14 @@
     <!-- tab bar -->
      <div id="tabbar-div" style="display:none;">
       <p>
-        <span class="tab-front" id="general-tab">{$lang.tab_general}</span><span
-        class="tab-back" id="detail-tab">{$lang.tab_detail}</span><span
-        class="tab-back" id="mix-tab">{$lang.tab_mix}</span>{if $goods_type_list}<span
-        class="tab-back" id="properties-tab">{$lang.tab_properties}</span>{/if}<span
-        class="tab-back" id="gallery-tab">{$lang.tab_gallery}</span><span
-        class="tab-back" id="linkgoods-tab">{$lang.tab_linkgoods}</span>{if $code eq ''}<span
-        class="tab-back" id="groupgoods-tab">{$lang.tab_groupgoods}</span>{/if}<span
-        class="tab-back" id="article-tab">{$lang.tab_article}</span><span
+        <span class="tab-front" id="general-tab"><?php echo $this->_var['lang']['tab_general']; ?></span><span
+        class="tab-back" id="detail-tab"><?php echo $this->_var['lang']['tab_detail']; ?></span><span
+        class="tab-back" id="mix-tab"><?php echo $this->_var['lang']['tab_mix']; ?></span><?php if ($this->_var['goods_type_list']): ?><span
+        class="tab-back" id="properties-tab"><?php echo $this->_var['lang']['tab_properties']; ?></span><?php endif; ?><span
+        class="tab-back" id="gallery-tab"><?php echo $this->_var['lang']['tab_gallery']; ?></span><span
+        class="tab-back" id="linkgoods-tab"><?php echo $this->_var['lang']['tab_linkgoods']; ?></span><?php if ($this->_var['code'] == ''): ?><span
+        class="tab-back" id="groupgoods-tab"><?php echo $this->_var['lang']['tab_groupgoods']; ?></span><?php endif; ?><span
+        class="tab-back" id="article-tab"><?php echo $this->_var['lang']['tab_article']; ?></span><span
         class="tab-back" id="func-tab">产品功效（可选）</span><span
         class="tab-back" id="use-tab">特色吃法（可选）</span>
       </p>
@@ -194,22 +194,22 @@
 		
 		
 		<div style="" id="section1" class="cd-section">		
-		<!--<div class="cd_section_caption"><div class="cd_section_caption_inside">{$lang.tab_general}</div></div>-->
+		<!--<div class="cd_section_caption"><div class="cd_section_caption_inside"><?php echo $this->_var['lang']['tab_general']; ?></div></div>-->
         <!-- 閫氱敤淇℃伅 -->
         <table width="90%" id="mix-table" style="display:;" align="center">
           <tr>
-            <td class="label">{$lang.lab_goods_name}</td>
-            <td><input type="text" name="goods_name" value="{$goods.goods_name|escape}" style="float:left;color:{$goods_name_color};" size="30" /><div style="background-color:{$goods_name_color};float:left;margin-left:2px;" id="font_color" onclick="ColorSelecter.Show(this);"><img src="images/color_selecter.gif" style="margin-top:-1px;" /></div><input type="hidden" id="goods_name_color" name="goods_name_color" value="{$goods_name_color}" />&nbsp;
+            <td class="label"><?php echo $this->_var['lang']['lab_goods_name']; ?></td>
+            <td><input type="text" name="goods_name" value="<?php echo htmlspecialchars($this->_var['goods']['goods_name']); ?>" style="float:left;color:<?php echo $this->_var['goods_name_color']; ?>;" size="30" /><div style="background-color:<?php echo $this->_var['goods_name_color']; ?>;float:left;margin-left:2px;" id="font_color" onclick="ColorSelecter.Show(this);"><img src="images/color_selecter.gif" style="margin-top:-1px;" /></div><input type="hidden" id="goods_name_color" name="goods_name_color" value="<?php echo $this->_var['goods_name_color']; ?>" />&nbsp;
             <select name="goods_name_style">
-              <option value="">{$lang.select_font}</option>
-              {html_options options=$lang.font_styles selected=$goods_name_style}
+              <option value=""><?php echo $this->_var['lang']['select_font']; ?></option>
+              <?php echo $this->html_options(array('options'=>$this->_var['lang']['font_styles'],'selected'=>$this->_var['goods_name_style'])); ?>
             </select>
-            {$lang.require_field}</td>
+            <?php echo $this->_var['lang']['require_field']; ?></td>
           </tr>
 		  
           <tr>
-            <td class="label">{$lang.lab_goods_name_en}</td>
-            <td><input type="text" name="goods_name_en" value="{$goods.goods_name_en|escape}" style="float:left;color:{$goods_name_color};" size="30" /><div style="background-color:{$goods_name_color};float:left;margin-left:2px;" id="font_color" onclick="ColorSelecter.Show(this);"></div><input type="hidden" id="goods_name_color" name="goods_name_color" value="{$goods_name_color}" />&nbsp;
+            <td class="label"><?php echo $this->_var['lang']['lab_goods_name_en']; ?></td>
+            <td><input type="text" name="goods_name_en" value="<?php echo htmlspecialchars($this->_var['goods']['goods_name_en']); ?>" style="float:left;color:<?php echo $this->_var['goods_name_color']; ?>;" size="30" /><div style="background-color:<?php echo $this->_var['goods_name_color']; ?>;float:left;margin-left:2px;" id="font_color" onclick="ColorSelecter.Show(this);"></div><input type="hidden" id="goods_name_color" name="goods_name_color" value="<?php echo $this->_var['goods_name_color']; ?>" />&nbsp;
             
 </td>
           </tr>
@@ -217,157 +217,165 @@
 		  
           <tr>
             <td class="label">
-            <a href="javascript:showNotice('noticeGoodsSN');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_goods_sn} </td>
-            <td><input type="text" name="goods_sn" value="{$goods.goods_sn|escape}" size="20" onblur="checkGoodsSn(this.value,'{$goods.goods_id}')" /><span id="goods_sn_notice"></span><br />
-            <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeGoodsSN">{$lang.notice_goods_sn}</span></td>
+            <a href="javascript:showNotice('noticeGoodsSN');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_goods_sn']; ?> </td>
+            <td><input type="text" name="goods_sn" value="<?php echo htmlspecialchars($this->_var['goods']['goods_sn']); ?>" size="20" onblur="checkGoodsSn(this.value,'<?php echo $this->_var['goods']['goods_id']; ?>')" /><span id="goods_sn_notice"></span><br />
+            <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeGoodsSN"><?php echo $this->_var['lang']['notice_goods_sn']; ?></span></td>
           </tr>
           <tr>
-            <td class="label">{$lang.lab_goods_cat}</td>
-            <td><select name="cat_id" onchange="hideCatDiv()" ><option value="0">{$lang.select_please}</option>{$cat_list}</select>
-              {if $is_add}
-              <a href="javascript:void(0)" onclick="rapidCatAdd()" title="{$lang.rapid_add_cat}" class="special">{$lang.rapid_add_cat}</a>
+            <td class="label"><?php echo $this->_var['lang']['lab_goods_cat']; ?></td>
+            <td><select name="cat_id" onchange="hideCatDiv()" ><option value="0"><?php echo $this->_var['lang']['select_please']; ?></option><?php echo $this->_var['cat_list']; ?></select>
+              <?php if ($this->_var['is_add']): ?>
+              <a href="javascript:void(0)" onclick="rapidCatAdd()" title="<?php echo $this->_var['lang']['rapid_add_cat']; ?>" class="special"><?php echo $this->_var['lang']['rapid_add_cat']; ?></a>
               <span id="category_add" style="display:none;">
               <input class="text" size="10" name="addedCategoryName" />
-               <a href="javascript:void(0)" onclick="addCategory()" title="{$lang.button_submit}" class="special" >{$lang.button_submit}</a>
-               <a href="javascript:void(0)" onclick="return goCatPage()" title="{$lang.category_manage}" class="special" >{$lang.category_manage}</a>
-               <a href="javascript:void(0)" onclick="hideCatDiv()" title="{$lang.hide}" class="special" ><<</a>
+               <a href="javascript:void(0)" onclick="addCategory()" title="<?php echo $this->_var['lang']['button_submit']; ?>" class="special" ><?php echo $this->_var['lang']['button_submit']; ?></a>
+               <a href="javascript:void(0)" onclick="return goCatPage()" title="<?php echo $this->_var['lang']['category_manage']; ?>" class="special" ><?php echo $this->_var['lang']['category_manage']; ?></a>
+               <a href="javascript:void(0)" onclick="hideCatDiv()" title="<?php echo $this->_var['lang']['hide']; ?>" class="special" ><<</a>
                </span>
-               {/if}
-               {$lang.require_field}
+               <?php endif; ?>
+               <?php echo $this->_var['lang']['require_field']; ?>
             </td>
           </tr>
           <tr class="optional_part">
-            <td class="label">{$lang.lab_other_cat}</td>
+            <td class="label"><?php echo $this->_var['lang']['lab_other_cat']; ?></td>
             <td>
-              <input type="button" value="{$lang.add}" onclick="addOtherCat(this.parentNode)" class="button" />
-              {foreach from=$goods.other_cat item=cat_id}
-              <select name="other_cat[]"><option value="0">{$lang.select_please}</option>{$other_cat_list.$cat_id}</select>
-              {/foreach}
+              <input type="button" value="<?php echo $this->_var['lang']['add']; ?>" onclick="addOtherCat(this.parentNode)" class="button" />
+              <?php $_from = $this->_var['goods']['other_cat']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'cat_id');if (count($_from)):
+    foreach ($_from AS $this->_var['cat_id']):
+?>
+              <select name="other_cat[]"><option value="0"><?php echo $this->_var['lang']['select_please']; ?></option><?php echo $this->_var['other_cat_list'][$this->_var['cat_id']]; ?></select>
+              <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
             </td>
           </tr>
           <tr>
-            <td class="label ">{$lang.lab_goods_brand}</td>
-            <td><select name="brand_id" onchange="hideBrandDiv()" ><option value="0">{$lang.select_please}{html_options options=$brand_list selected=$goods.brand_id}</select>
-              {if $is_add}
-              <a href="javascript:void(0)" title="{$lang.rapid_add_brand}" onclick="rapidBrandAdd()" class="special" >{$lang.rapid_add_brand}</a>
+            <td class="label "><?php echo $this->_var['lang']['lab_goods_brand']; ?></td>
+            <td><select name="brand_id" onchange="hideBrandDiv()" ><option value="0"><?php echo $this->_var['lang']['select_please']; ?><?php echo $this->html_options(array('options'=>$this->_var['brand_list'],'selected'=>$this->_var['goods']['brand_id'])); ?></select>
+              <?php if ($this->_var['is_add']): ?>
+              <a href="javascript:void(0)" title="<?php echo $this->_var['lang']['rapid_add_brand']; ?>" onclick="rapidBrandAdd()" class="special" ><?php echo $this->_var['lang']['rapid_add_brand']; ?></a>
               <span id="brand_add" style="display:none;">
               <input class="text" size="15" name="addedBrandName" />
-               <a href="javascript:void(0)" onclick="addBrand()" class="special" >{$lang.button_submit}</a>
-               <a href="javascript:void(0)" onclick="return goBrandPage()" title="{$lang.brand_manage}" class="special" >{$lang.brand_manage}</a>
-               <a href="javascript:void(0)" onclick="hideBrandDiv()" title="{$lang.hide}" class="special" ><<</a>
+               <a href="javascript:void(0)" onclick="addBrand()" class="special" ><?php echo $this->_var['lang']['button_submit']; ?></a>
+               <a href="javascript:void(0)" onclick="return goBrandPage()" title="<?php echo $this->_var['lang']['brand_manage']; ?>" class="special" ><?php echo $this->_var['lang']['brand_manage']; ?></a>
+               <a href="javascript:void(0)" onclick="hideBrandDiv()" title="<?php echo $this->_var['lang']['hide']; ?>" class="special" ><<</a>
                </span>
-               {/if}
+               <?php endif; ?>
             </td>
           </tr>
-         {if $suppliers_exists eq 1}
+         <?php if ($this->_var['suppliers_exists'] == 1): ?>
           <tr class="optional_part">
-            <td class="label">{$lang.label_suppliers}</td>
+            <td class="label"><?php echo $this->_var['lang']['label_suppliers']; ?></td>
             <td><select name="suppliers_id" id="suppliers_id">
-        <option value="0">{$lang.suppliers_no}</option>
-        {html_options options=$suppliers_list_name selected=$goods.suppliers_id}
+        <option value="0"><?php echo $this->_var['lang']['suppliers_no']; ?></option>
+        <?php echo $this->html_options(array('options'=>$this->_var['suppliers_list_name'],'selected'=>$this->_var['goods']['suppliers_id'])); ?>
       </select></td>
           </tr>
-         {/if}
+         <?php endif; ?>
           <tr>
-            <td class="label">{$lang.lab_shop_price}</td>
-            <td><input type="text" name="shop_price" value="{$goods.shop_price}" size="20" onblur="priceSetted()"/>
-            <input type="button" value="{$lang.compute_by_mp}" onclick="marketPriceSetted()" />
-            {$lang.require_field}</td>
+            <td class="label"><?php echo $this->_var['lang']['lab_shop_price']; ?></td>
+            <td><input type="text" name="shop_price" value="<?php echo $this->_var['goods']['shop_price']; ?>" size="20" onblur="priceSetted()"/>
+            <input type="button" value="<?php echo $this->_var['lang']['compute_by_mp']; ?>" onclick="marketPriceSetted()" />
+            <?php echo $this->_var['lang']['require_field']; ?></td>
           </tr>
-          {if $user_rank_list}
+          <?php if ($this->_var['user_rank_list']): ?>
           <tr class="optional_part">
-            <td class="label"><a href="javascript:showNotice('noticeUserPrice');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lab_user_price}</td>
+            <td class="label"><a href="javascript:showNotice('noticeUserPrice');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a><?php echo $this->_var['lang']['lab_user_price']; ?></td>
             <td>
-              {foreach from=$user_rank_list item=user_rank}
-              {$user_rank.rank_name}<span id="nrank_{$user_rank.rank_id}"></span><input type="text" id="rank_{$user_rank.rank_id}" name="user_price[]" value="{$member_price_list[$user_rank.rank_id]|default:-1}" onkeyup="if(parseInt(this.value)<-1){this.value='-1';};set_price_note({$user_rank.rank_id})" size="8" />
-              <input type="hidden" name="user_rank[]" value="{$user_rank.rank_id}" />
-              {/foreach}
+              <?php $_from = $this->_var['user_rank_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'user_rank');if (count($_from)):
+    foreach ($_from AS $this->_var['user_rank']):
+?>
+              <?php echo $this->_var['user_rank']['rank_name']; ?><span id="nrank_<?php echo $this->_var['user_rank']['rank_id']; ?>"></span><input type="text" id="rank_<?php echo $this->_var['user_rank']['rank_id']; ?>" name="user_price[]" value="<?php echo empty($this->_var['member_price_list'][$this->_var['user_rank']['rank_id']]) ? '-1' : $this->_var['member_price_list'][$this->_var['user_rank']['rank_id']]; ?>" onkeyup="if(parseInt(this.value)<-1){this.value='-1';};set_price_note(<?php echo $this->_var['user_rank']['rank_id']; ?>)" size="8" />
+              <input type="hidden" name="user_rank[]" value="<?php echo $this->_var['user_rank']['rank_id']; ?>" />
+              <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
               <br />
-              <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeUserPrice">{$lang.notice_user_price}</span>
+              <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeUserPrice"><?php echo $this->_var['lang']['notice_user_price']; ?></span>
             </td>
           </tr>
-          {/if}
+          <?php endif; ?>
 
           <!--鍟嗗搧浼樻儬浠锋牸-->
           <tr class="optional_part">
-            <td class="label"><a href="javascript:showNotice('volumePrice');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lab_volume_price}</td>
+            <td class="label"><a href="javascript:showNotice('volumePrice');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a><?php echo $this->_var['lang']['lab_volume_price']; ?></td>
             <td>
               <table width="100%" id="tbody-volume" align="center">
-                {foreach from=$volume_price_list item=volume_price name="volume_price_tab"}
+                <?php $_from = $this->_var['volume_price_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'volume_price');$this->_foreach['volume_price_tab'] = array('total' => count($_from), 'iteration' => 0);
+if ($this->_foreach['volume_price_tab']['total'] > 0):
+    foreach ($_from AS $this->_var['volume_price']):
+        $this->_foreach['volume_price_tab']['iteration']++;
+?>
                 <tr>
                   <td>
-                     {if $smarty.foreach.volume_price_tab.iteration eq 1}
+                     <?php if ($this->_foreach['volume_price_tab']['iteration'] == 1): ?>
                        <a href="javascript:;" onclick="addVolumePrice(this)">[+]</a>
-                     {else}
+                     <?php else: ?>
                        <a href="javascript:;" onclick="removeVolumePrice(this)">[-]</a>
-                     {/if}
-                     {$lang.volume_number} <input type="text" name="volume_number[]" size="8" value="{$volume_price.number}"/>
-                     {$lang.volume_price} <input type="text" name="volume_price[]" size="8" value="{$volume_price.price}"/>
+                     <?php endif; ?>
+                     <?php echo $this->_var['lang']['volume_number']; ?> <input type="text" name="volume_number[]" size="8" value="<?php echo $this->_var['volume_price']['number']; ?>"/>
+                     <?php echo $this->_var['lang']['volume_price']; ?> <input type="text" name="volume_price[]" size="8" value="<?php echo $this->_var['volume_price']['price']; ?>"/>
                   </td>
                 </tr>
-                {/foreach}
+                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
               </table>
-              <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="volumePrice">{$lang.notice_volume_price}</span>
+              <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="volumePrice"><?php echo $this->_var['lang']['notice_volume_price']; ?></span>
             </td>
           </tr>
           <!--鍟嗗搧浼樻儬浠锋牸 end -->
 
           <tr class="optional_part">
-            <td class="label">{$lang.lab_market_price}</td>
-            <td><input type="text" name="market_price" value="{$goods.market_price}" size="20" />
-              <input type="button" value="{$lang.integral_market_price}" onclick="integral_market_price()" />
+            <td class="label"><?php echo $this->_var['lang']['lab_market_price']; ?></td>
+            <td><input type="text" name="market_price" value="<?php echo $this->_var['goods']['market_price']; ?>" size="20" />
+              <input type="button" value="<?php echo $this->_var['lang']['integral_market_price']; ?>" onclick="integral_market_price()" />
             </td>
           </tr>
           <tr class="optional_part">
-            <td class="label"><a href="javascript:showNotice('giveIntegral');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_give_integral}</td>
-            <td><input type="text" name="give_integral" value="{$goods.give_integral}" size="20" />
-            <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="giveIntegral">{$lang.notice_give_integral}</span></td>
+            <td class="label"><a href="javascript:showNotice('giveIntegral');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_give_integral']; ?></td>
+            <td><input type="text" name="give_integral" value="<?php echo $this->_var['goods']['give_integral']; ?>" size="20" />
+            <br /><span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="giveIntegral"><?php echo $this->_var['lang']['notice_give_integral']; ?></span></td>
           </tr>
           <tr class="optional_part">
-            <td class="label"><a href="javascript:showNotice('rankIntegral');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_rank_integral}</td>
-            <td><input type="text" name="rank_integral" value="{$goods.rank_integral}" size="20" />
-            <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="rankIntegral">{$lang.notice_rank_integral}</span></td>
+            <td class="label"><a href="javascript:showNotice('rankIntegral');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_rank_integral']; ?></td>
+            <td><input type="text" name="rank_integral" value="<?php echo $this->_var['goods']['rank_integral']; ?>" size="20" />
+            <br /><span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="rankIntegral"><?php echo $this->_var['lang']['notice_rank_integral']; ?></span></td>
           </tr>
           <tr class="optional_part">
-            <td class="label"><a href="javascript:showNotice('noticPoints');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_integral}</td>
-            <td><input type="text" name="integral" value="{$goods.integral}" size="20" onblur="parseint_integral()";/>
-              <br /><span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticPoints">{$lang.notice_integral}</span>
+            <td class="label"><a href="javascript:showNotice('noticPoints');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_integral']; ?></td>
+            <td><input type="text" name="integral" value="<?php echo $this->_var['goods']['integral']; ?>" size="20" onblur="parseint_integral()";/>
+              <br /><span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticPoints"><?php echo $this->_var['lang']['notice_integral']; ?></span>
             </td>
           </tr>
           <tr class="optional_part">
-            <td class="label"><label for="is_promote"><input type="checkbox" id="is_promote" name="is_promote" value="1" {if $goods.is_promote}checked="checked"{/if} onclick="handlePromote(this.checked);" /> {$lang.lab_promote_price}</label></td>
-            <td id="promote_3"><input type="text" id="promote_1" name="promote_price" value="{$goods.promote_price}" size="20" /></td>
+            <td class="label"><label for="is_promote"><input type="checkbox" id="is_promote" name="is_promote" value="1" <?php if ($this->_var['goods']['is_promote']): ?>checked="checked"<?php endif; ?> onclick="handlePromote(this.checked);" /> <?php echo $this->_var['lang']['lab_promote_price']; ?></label></td>
+            <td id="promote_3"><input type="text" id="promote_1" name="promote_price" value="<?php echo $this->_var['goods']['promote_price']; ?>" size="20" /></td>
           </tr>
           <tr class="optional_part" id="promote_4">
-            <td class="label" id="promote_5">{$lang.lab_promote_date}</td>
+            <td class="label" id="promote_5"><?php echo $this->_var['lang']['lab_promote_date']; ?></td>
             <td id="promote_6">
-              <input name="promote_start_date" type="text" id="promote_start_date" size="12" value='{$goods.promote_start_date}' readonly /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="{$lang.btn_select}" class="button"/> - <input name="promote_end_date" type="text" id="promote_end_date" size="12" value='{$goods.promote_end_date}' readonly /><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="{$lang.btn_select}" class="button"/>
+              <input name="promote_start_date" type="text" id="promote_start_date" size="12" value='<?php echo $this->_var['goods']['promote_start_date']; ?>' readonly /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('promote_start_date', '%Y-%m-%d', false, false, 'selbtn1');" value="<?php echo $this->_var['lang']['btn_select']; ?>" class="button"/> - <input name="promote_end_date" type="text" id="promote_end_date" size="12" value='<?php echo $this->_var['goods']['promote_end_date']; ?>' readonly /><input name="selbtn2" type="button" id="selbtn2" onclick="return showCalendar('promote_end_date', '%Y-%m-%d', false, false, 'selbtn2');" value="<?php echo $this->_var['lang']['btn_select']; ?>" class="button"/>
             </td>
           </tr>
           <tr class="">
-            <td class="label">{$lang.lab_picture}</td>
+            <td class="label"><?php echo $this->_var['lang']['lab_picture']; ?></td>
             <td>
               <input type="file" name="goods_img" size="35" />
-              {if $goods.goods_img}
-                <a href="goods.php?act=show_image&img_url={$goods.goods_img}" target="_blank"><img src="images/yes.gif" border="0" /></a>
-              {else}
+              <?php if ($this->_var['goods']['goods_img']): ?>
+                <a href="goods.php?act=show_image&img_url=<?php echo $this->_var['goods']['goods_img']; ?>" target="_blank"><img src="images/yes.gif" border="0" /></a>
+              <?php else: ?>
                 <img src="images/no.gif" />
-              {/if}
-              <br /><input type="text" size="40" value="{$lang.lab_picture_url}" style="color:#aaa;" onfocus="if (this.value == '{$lang.lab_picture_url}'){this.value='http://';this.style.color='#000';}" name="goods_img_url"/>
+              <?php endif; ?>
+              <br /><input type="text" size="40" value="<?php echo $this->_var['lang']['lab_picture_url']; ?>" style="color:#aaa;" onfocus="if (this.value == '<?php echo $this->_var['lang']['lab_picture_url']; ?>'){this.value='http://';this.style.color='#000';}" name="goods_img_url"/>
             </td>
           </tr>
           <tr class="optional_part" id="auto_thumb_1">
-            <td class="label"> {$lang.lab_thumb}</td>
+            <td class="label"> <?php echo $this->_var['lang']['lab_thumb']; ?></td>
             <td id="auto_thumb_3">
               <input type="file" name="goods_thumb" size="35" />
-              {if $goods.goods_thumb}
-                <a href="goods.php?act=show_image&img_url={$goods.goods_thumb}" target="_blank"><img src="images/yes.gif" border="0" /></a>
-              {else}
+              <?php if ($this->_var['goods']['goods_thumb']): ?>
+                <a href="goods.php?act=show_image&img_url=<?php echo $this->_var['goods']['goods_thumb']; ?>" target="_blank"><img src="images/yes.gif" border="0" /></a>
+              <?php else: ?>
                 <img src="images/no.gif" />
-              {/if}
-              <br /><input type="text" size="40" value="{$lang.lab_thumb_url}" style="color:#aaa;" onfocus="if (this.value == '{$lang.lab_thumb_url}'){this.value='http://';this.style.color='#000';}" name="goods_thumb_url"/>
-              {if $gd > 0}
-              <br /><label for="auto_thumb"><input type="checkbox" id="auto_thumb" name="auto_thumb" checked="true" value="1" onclick="handleAutoThumb(this.checked)" />{$lang.auto_thumb}</label>{/if}
+              <?php endif; ?>
+              <br /><input type="text" size="40" value="<?php echo $this->_var['lang']['lab_thumb_url']; ?>" style="color:#aaa;" onfocus="if (this.value == '<?php echo $this->_var['lang']['lab_thumb_url']; ?>'){this.value='http://';this.style.color='#000';}" name="goods_thumb_url"/>
+              <?php if ($this->_var['gd'] > 0): ?>
+              <br /><label for="auto_thumb"><input type="checkbox" id="auto_thumb" name="auto_thumb" checked="true" value="1" onclick="handleAutoThumb(this.checked)" /><?php echo $this->_var['lang']['auto_thumb']; ?></label><?php endif; ?>
             </td>
           </tr>
         </table>
@@ -404,16 +412,16 @@
         <!-- 详细描述 -->
         <table width="90%" id="detail-table" style="display:;">
 			<tr>
-				<td>{$lang.lab_desc_cn}</td>
+				<td><?php echo $this->_var['lang']['lab_desc_cn']; ?></td>
 			</tr>
           	<tr>
-            	<td>{$umeditor}</td>
+            	<td><?php echo $this->_var['umeditor']; ?></td>
           	</tr>
 	  	 	<tr>
-	  			<td>{$lang.lab_desc_en}</td>
+	  			<td><?php echo $this->_var['lang']['lab_desc_en']; ?></td>
 	  		</tr>
 		  	<tr>
-			  <td>{$umeditor2}</td>
+			  <td><?php echo $this->_var['umeditor2']; ?></td>
 		  	</tr`>
         </table>
 	</div>		
@@ -450,53 +458,53 @@
 		<div id="section3" class="cd-section">	
         <!-- 鍏朵粬淇℃伅 -->
         <table width="90%" id="mix-table" style="display:;" align="center">
-          {if $code eq ''}
+          <?php if ($this->_var['code'] == ''): ?>
           <tr>
-            <td class="label">{$lang.lab_goods_weight}</td>
-            <td><input type="text" name="goods_weight" value="{$goods.goods_weight_by_unit}" size="20" /> <select name="weight_unit">{html_options options=$unit_list selected=$weight_unit}</select></td>
+            <td class="label"><?php echo $this->_var['lang']['lab_goods_weight']; ?></td>
+            <td><input type="text" name="goods_weight" value="<?php echo $this->_var['goods']['goods_weight_by_unit']; ?>" size="20" /> <select name="weight_unit"><?php echo $this->html_options(array('options'=>$this->_var['unit_list'],'selected'=>$this->_var['weight_unit'])); ?></select></td>
           </tr>
-          {/if}
-          {if $cfg.use_storage}
+          <?php endif; ?>
+          <?php if ($this->_var['cfg']['use_storage']): ?>
           <tr>
-            <td class="label"><a href="javascript:showNotice('noticeStorage');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_goods_number}</td>
-<!--            <td><input type="text" name="goods_number" value="{$goods.goods_number}" size="20" {if $code neq '' || $goods._attribute neq ''}readonly="readonly"{/if} /><br />-->
-            <td><input type="text" name="goods_number" value="{$goods.goods_number}" size="20" /><br />
-            <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeStorage">{$lang.notice_storage}</span></td>
+            <td class="label"><a href="javascript:showNotice('noticeStorage');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_goods_number']; ?></td>
+<!--            <td><input type="text" name="goods_number" value="<?php echo $this->_var['goods']['goods_number']; ?>" size="20" <?php if ($this->_var['code'] != '' || $this->_var['goods']['_attribute'] != ''): ?>readonly="readonly"<?php endif; ?> /><br />-->
+            <td><input type="text" name="goods_number" value="<?php echo $this->_var['goods']['goods_number']; ?>" size="20" /><br />
+            <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeStorage"><?php echo $this->_var['lang']['notice_storage']; ?></span></td>
           </tr>
           <tr class="optional_part">
-            <td class="label">{$lang.lab_warn_number}</td>
-            <td><input type="text" name="warn_number" value="{$goods.warn_number}" size="20" /></td>
+            <td class="label"><?php echo $this->_var['lang']['lab_warn_number']; ?></td>
+            <td><input type="text" name="warn_number" value="<?php echo $this->_var['goods']['warn_number']; ?>" size="20" /></td>
           </tr>
-          {/if}
+          <?php endif; ?>
           <tr class="optional_part">
-            <td class="label">{$lang.lab_intro}</td>
-            <td><input type="checkbox" name="is_best" value="1" {if $goods.is_best}checked="checked"{/if} />{$lang.is_best} <input type="checkbox" name="is_new" value="1" {if $goods.is_new}checked="checked"{/if} />{$lang.is_new} <input type="checkbox" name="is_hot" value="1" {if $goods.is_hot}checked="checked"{/if} />{$lang.is_hot}</td>
+            <td class="label"><?php echo $this->_var['lang']['lab_intro']; ?></td>
+            <td><input type="checkbox" name="is_best" value="1" <?php if ($this->_var['goods']['is_best']): ?>checked="checked"<?php endif; ?> /><?php echo $this->_var['lang']['is_best']; ?> <input type="checkbox" name="is_new" value="1" <?php if ($this->_var['goods']['is_new']): ?>checked="checked"<?php endif; ?> /><?php echo $this->_var['lang']['is_new']; ?> <input type="checkbox" name="is_hot" value="1" <?php if ($this->_var['goods']['is_hot']): ?>checked="checked"<?php endif; ?> /><?php echo $this->_var['lang']['is_hot']; ?></td>
           </tr>
           <tr class="optional_part" id="alone_sale_1">
-            <td class="label" id="alone_sale_2">{$lang.lab_is_on_sale}</td>
-            <td id="alone_sale_3"><input type="checkbox" name="is_on_sale" value="1" {if $goods.is_on_sale}checked="checked"{/if} /> {$lang.on_sale_desc}</td>
+            <td class="label" id="alone_sale_2"><?php echo $this->_var['lang']['lab_is_on_sale']; ?></td>
+            <td id="alone_sale_3"><input type="checkbox" name="is_on_sale" value="1" <?php if ($this->_var['goods']['is_on_sale']): ?>checked="checked"<?php endif; ?> /> <?php echo $this->_var['lang']['on_sale_desc']; ?></td>
           </tr>
           <tr class="optional_part">
-            <td class="label">{$lang.lab_is_alone_sale}</td>
-            <td><input type="checkbox" name="is_alone_sale" value="1" {if $goods.is_alone_sale}checked="checked"{/if} /> {$lang.alone_sale}</td>
+            <td class="label"><?php echo $this->_var['lang']['lab_is_alone_sale']; ?></td>
+            <td><input type="checkbox" name="is_alone_sale" value="1" <?php if ($this->_var['goods']['is_alone_sale']): ?>checked="checked"<?php endif; ?> /> <?php echo $this->_var['lang']['alone_sale']; ?></td>
           </tr>
           <tr class="optional_part">
-            <td class="label">{$lang.lab_is_free_shipping}</td>
-            <td><input type="checkbox" name="is_shipping" value="1" {if $goods.is_shipping}checked="checked"{/if} /> {$lang.free_shipping}</td>
+            <td class="label"><?php echo $this->_var['lang']['lab_is_free_shipping']; ?></td>
+            <td><input type="checkbox" name="is_shipping" value="1" <?php if ($this->_var['goods']['is_shipping']): ?>checked="checked"<?php endif; ?> /> <?php echo $this->_var['lang']['free_shipping']; ?></td>
           </tr>
           <tr>
-            <td class="label">{$lang.lab_keywords}</td>
-            <td><input type="text" name="keywords" value="{$goods.keywords|escape}" size="40" /> {$lang.notice_keywords}</td>
+            <td class="label"><?php echo $this->_var['lang']['lab_keywords']; ?></td>
+            <td><input type="text" name="keywords" value="<?php echo htmlspecialchars($this->_var['goods']['keywords']); ?>" size="40" /> <?php echo $this->_var['lang']['notice_keywords']; ?></td>
           </tr>
           <tr class="optional_part">
-            <td class="label">{$lang.lab_goods_brief}</td>
-            <td><textarea name="goods_brief" cols="40" rows="3">{$goods.goods_brief|escape}</textarea></td>
+            <td class="label"><?php echo $this->_var['lang']['lab_goods_brief']; ?></td>
+            <td><textarea name="goods_brief" cols="40" rows="3"><?php echo htmlspecialchars($this->_var['goods']['goods_brief']); ?></textarea></td>
           </tr>
           <tr class="optional_part">
             <td class="label">
-            <a href="javascript:showNotice('noticeSellerNote');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a> {$lang.lab_seller_note} </td>
-            <td><textarea name="seller_note" cols="40" rows="3">{$goods.seller_note}</textarea><br />
-            <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeSellerNote">{$lang.notice_seller_note}</span></td>
+            <a href="javascript:showNotice('noticeSellerNote');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a> <?php echo $this->_var['lang']['lab_seller_note']; ?> </td>
+            <td><textarea name="seller_note" cols="40" rows="3"><?php echo $this->_var['goods']['seller_note']; ?></textarea><br />
+            <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeSellerNote"><?php echo $this->_var['lang']['notice_seller_note']; ?></span></td>
           </tr>
         </table>
 	</div>	
@@ -528,24 +536,24 @@
 		
 
         <!-- 灞炴€т笌瑙勬牸 -->
-        {if $goods_type_list}
+        <?php if ($this->_var['goods_type_list']): ?>
 		<div id="section4" class="cd-section">		
         <table width="90%" id="properties-table" style="display:;" align="center">
           <tr>
-              <td class="label"><a href="javascript:showNotice('noticeGoodsType');" title="{$lang.form_notice}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}"></a>{$lang.lab_goods_type}</td>
+              <td class="label"><a href="javascript:showNotice('noticeGoodsType');" title="<?php echo $this->_var['lang']['form_notice']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>"></a><?php echo $this->_var['lang']['lab_goods_type']; ?></td>
               <td>
-                <select name="goods_type" onchange="getAttrList({$goods.goods_id})">
-                  <option value="0">{$lang.sel_goods_type}</option>
-                  {$goods_type_list}
+                <select name="goods_type" onchange="getAttrList(<?php echo $this->_var['goods']['goods_id']; ?>)">
+                  <option value="0"><?php echo $this->_var['lang']['sel_goods_type']; ?></option>
+                  <?php echo $this->_var['goods_type_list']; ?>
                 </select><br />
-              <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="noticeGoodsType">{$lang.notice_goods_type}</span></td>
+              <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="noticeGoodsType"><?php echo $this->_var['lang']['notice_goods_type']; ?></span></td>
           </tr>
           <tr>
-            <td id="tbody-goodsAttr" colspan="2" style="padding:0">{$goods_attr_html}</td>
+            <td id="tbody-goodsAttr" colspan="2" style="padding:0"><?php echo $this->_var['goods_attr_html']; ?></td>
           </tr>
         </table>
 	</div>		
-        {/if}
+        <?php endif; ?>
 
 		
 		
@@ -590,45 +598,47 @@
 		  <tr height="10"><td>此处图片格式均为1024x1024的JPG</td></tr>
           <tr>
             <td>
-              {foreach from=$img_list item=img key=i}
-              <div id="gallery_{$img.img_id}" style="float:left; text-align:center; border: 1px solid #DADADA; margin: 4px; padding:2px;">
+              <?php $_from = $this->_var['img_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('i', 'img');if (count($_from)):
+    foreach ($_from AS $this->_var['i'] => $this->_var['img']):
+?>
+              <div id="gallery_<?php echo $this->_var['img']['img_id']; ?>" style="float:left; text-align:center; border: 1px solid #DADADA; margin: 4px; padding:2px;">
 				<table border="0" cellspacing="3" cellpadding="3" style="width:100%;">
 				<tr>
 				<td>
-                <a href="javascript:;" onclick="if (confirm('{$lang.drop_img_confirm}')) dropImg('{$img.img_id}')">[-]</a><br />
+                <a href="javascript:;" onclick="if (confirm('<?php echo $this->_var['lang']['drop_img_confirm']; ?>')) dropImg('<?php echo $this->_var['img']['img_id']; ?>')">[-]</a><br />
 				</td>
 				</tr>
 				<tr>
 				<td>
-                <a href="goods.php?act=show_image&img_url={$img.img_url}" target="_blank">
-                <img src="../{if $img.thumb_url}{$img.thumb_url}{else}{$img.img_url}{/if}" {if $thumb_width neq 0}width="{$thumb_width}"{/if} {if $thumb_height neq 0}height="{$thumb_height}"{/if} border="0" />
+                <a href="goods.php?act=show_image&img_url=<?php echo $this->_var['img']['img_url']; ?>" target="_blank">
+                <img src="../<?php if ($this->_var['img']['thumb_url']): ?><?php echo $this->_var['img']['thumb_url']; ?><?php else: ?><?php echo $this->_var['img']['img_url']; ?><?php endif; ?>" <?php if ($this->_var['thumb_width'] != 0): ?>width="<?php echo $this->_var['thumb_width']; ?>"<?php endif; ?> <?php if ($this->_var['thumb_height'] != 0): ?>height="<?php echo $this->_var['thumb_height']; ?>"<?php endif; ?> border="0" />
                 </a>
 				</td>
 				</tr>
 				<tr height="10"><td></td></tr>
 				<tr>
 				<td  style="text-align:left;">
-                说明： <input type="text" value="{$img.img_desc|escape}" size="15" name="old_img_desc[{$img.img_id}]" />
+                说明： <input type="text" value="<?php echo htmlspecialchars($this->_var['img']['img_desc']); ?>" size="15" name="old_img_desc[<?php echo $this->_var['img']['img_id']; ?>]" />
 				</td>
 				</tr>
 				<tr>
 				<td style="text-align:left;">
-                顺序： <input type="text" value="{$img.img_order|escape}" size="3" name="old_img_order[{$img.img_id}]" />
+                顺序： <input type="text" value="<?php echo htmlspecialchars($this->_var['img']['img_order']); ?>" size="3" name="old_img_order[<?php echo $this->_var['img']['img_id']; ?>]" />
 				</td>
 				</tr>
 				<tr>
 				<td  style="text-align:left;">
-				<input type="checkbox" name="old_img_show_in_thumbnail[{$img.img_id}]" value="{$show_in_thumbnail}" {if $img.img_show_in_thumbnail eq 1}checked{/if}> Show in Thumbnail
+				<input type="checkbox" name="old_img_show_in_thumbnail[<?php echo $this->_var['img']['img_id']; ?>]" value="<?php echo $this->_var['show_in_thumbnail']; ?>" <?php if ($this->_var['img']['img_show_in_thumbnail'] == 1): ?>checked<?php endif; ?>> Show in Thumbnail
 				</td>
 				</tr>
 				<tr>
 				<td  style="text-align:left;">
-				<input type="checkbox" name="old_img_show_in_detail[{$img.img_id}]" value="{$show_in_detail}" {if $img.img_show_in_detail eq 1}checked{/if}> Show in Detail
+				<input type="checkbox" name="old_img_show_in_detail[<?php echo $this->_var['img']['img_id']; ?>]" value="<?php echo $this->_var['show_in_detail']; ?>" <?php if ($this->_var['img']['img_show_in_detail'] == 1): ?>checked<?php endif; ?>> Show in Detail
 				</td>
 				</tr>
 				</table>
               </div>
-              {/foreach}
+              <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
             </td>
           </tr>
           <tr><td>&nbsp;</td></tr>
@@ -642,13 +652,13 @@
 			
 			</td>
 			<td>
-              {$lang.img_desc}
+              <?php echo $this->_var['lang']['img_desc']; ?>
 			</td>
 			<td>
-              {$lang.img_url}
+              <?php echo $this->_var['lang']['img_url']; ?>
 			</td>
 			<td>
-             {$lang.img_file}
+             <?php echo $this->_var['lang']['img_file']; ?>
 			</td>
 			<td>
              顺序
@@ -676,16 +686,16 @@
               <input type="file" name="img_url[]" />
 			</td>
 			<td>
-              <input type="text" size="40" value="{$lang.img_file}" style="color:#aaa;" onfocus="if (this.value == '{$lang.img_file}'){this.value='http://';this.style.color='#000';}" name="img_file[]"/>
+              <input type="text" size="40" value="<?php echo $this->_var['lang']['img_file']; ?>" style="color:#aaa;" onfocus="if (this.value == '<?php echo $this->_var['lang']['img_file']; ?>'){this.value='http://';this.style.color='#000';}" name="img_file[]"/>
 			</td>
 			<td>
               <input type="text" size="3" name="img_order[]"/>
 			</td>
 			<td>
-              <input type="checkbox" checked value="{$show_in_thumbnail}" name="" onclick="if(this.checked){this.nextSibling.value = 1;}else{this.nextSibling.value = 0;}"/><input type="hidden" value="1" name="img_show_in_thumbnail[]"/>
+              <input type="checkbox" checked value="<?php echo $this->_var['show_in_thumbnail']; ?>" name="" onclick="if(this.checked){this.nextSibling.value = 1;}else{this.nextSibling.value = 0;}"/><input type="hidden" value="1" name="img_show_in_thumbnail[]"/>
 			</td>
 			<td>
-              <input type="checkbox" checked value="{$show_in_detail}" name="" onclick="if(this.checked){this.nextSibling.value = 1;}else{this.nextSibling.value = 0;}"/><input type="hidden" value="1" name="img_show_in_detail[]"/>
+              <input type="checkbox" checked value="<?php echo $this->_var['show_in_detail']; ?>" name="" onclick="if(this.checked){this.nextSibling.value = 1;}else{this.nextSibling.value = 0;}"/><input type="hidden" value="1" name="img_show_in_detail[]"/>
 			</td>
 			</tr>		
 			</table>
@@ -745,18 +755,18 @@
           <tr>
             <td colspan="3">
               <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
-              <select name="cat_id1"><option value="0">{$lang.all_category}{$cat_list}</select>
-              <select name="brand_id1"><option value="0">{$lang.all_brand}{html_options options=$brand_list}</select>
+              <select name="cat_id1"><option value="0"><?php echo $this->_var['lang']['all_category']; ?><?php echo $this->_var['cat_list']; ?></select>
+              <select name="brand_id1"><option value="0"><?php echo $this->_var['lang']['all_brand']; ?><?php echo $this->html_options(array('options'=>$this->_var['brand_list'])); ?></select>
               <input type="text" name="keyword1" />
-              <input type="button" value="{$lang.button_search}"  class="button"
+              <input type="button" value="<?php echo $this->_var['lang']['button_search']; ?>"  class="button"
                 onclick="searchGoods(sz1, 'cat_id1','brand_id1','keyword1')" />
             </td>
           </tr>
           <!-- 鍟嗗搧鍒楄〃 -->
           <tr>
-            <th>{$lang.all_goods}</th>
-            <th>{$lang.handler}</th>
-            <th>{$lang.link_goods}</th>
+            <th><?php echo $this->_var['lang']['all_goods']; ?></th>
+            <th><?php echo $this->_var['lang']['handler']; ?></th>
+            <th><?php echo $this->_var['lang']['link_goods']; ?></th>
           </tr>
           <tr>
             <td width="42%">
@@ -764,7 +774,7 @@
               </select>
             </td>
             <td align="center">
-              <p><input name="is_single" type="radio" value="1" checked="checked" />{$lang.single}<br /><input name="is_single" type="radio" value="0" />{$lang.double}</p>
+              <p><input name="is_single" type="radio" value="1" checked="checked" /><?php echo $this->_var['lang']['single']; ?><br /><input name="is_single" type="radio" value="0" /><?php echo $this->_var['lang']['double']; ?></p>
               <p><input type="button" value=">>" onclick="sz1.addItem(true, 'add_link_goods', goodsId, this.form.elements['is_single'][0].checked)" class="button" /></p>
               <p><input type="button" value=">" onclick="sz1.addItem(false, 'add_link_goods', goodsId, this.form.elements['is_single'][0].checked)" class="button" /></p>
               <p><input type="button" value="<" onclick="sz1.dropItem(false, 'drop_link_goods', goodsId, elements['is_single'][0].checked)" class="button" /></p>
@@ -772,9 +782,11 @@
             </td>
             <td width="42%">
               <select name="target_select1" size="20" style="width:100%" multiple ondblclick="sz1.dropItem(false, 'drop_link_goods', goodsId, elements['is_single'][0].checked)">
-                {foreach from=$link_goods_list item=link_goods}
-                <option value="{$link_goods.goods_id}">{$link_goods.goods_name}</option>
-                {/foreach}
+                <?php $_from = $this->_var['link_goods_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'link_goods');if (count($_from)):
+    foreach ($_from AS $this->_var['link_goods']):
+?>
+                <option value="<?php echo $this->_var['link_goods']['goods_id']; ?>"><?php echo $this->_var['link_goods']['goods_name']; ?></option>
+                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
               </select>
             </td>
           </tr>
@@ -828,17 +840,17 @@
           <tr>
             <td colspan="3">
               <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
-              <select name="cat_id2"><option value="0">{$lang.all_category}{$cat_list}</select>
-              <select name="brand_id2"><option value="0">{$lang.all_brand}{html_options options=$brand_list}</select>
+              <select name="cat_id2"><option value="0"><?php echo $this->_var['lang']['all_category']; ?><?php echo $this->_var['cat_list']; ?></select>
+              <select name="brand_id2"><option value="0"><?php echo $this->_var['lang']['all_brand']; ?><?php echo $this->html_options(array('options'=>$this->_var['brand_list'])); ?></select>
               <input type="text" name="keyword2" />
-              <input type="button" value="{$lang.button_search}" onclick="searchGoods(sz2, 'cat_id2', 'brand_id2', 'keyword2')" class="button" />
+              <input type="button" value="<?php echo $this->_var['lang']['button_search']; ?>" onclick="searchGoods(sz2, 'cat_id2', 'brand_id2', 'keyword2')" class="button" />
             </td>
           </tr>
           <!-- 鍟嗗搧鍒楄〃 -->
           <tr>
-            <th>{$lang.all_goods}</th>
-            <th>{$lang.handler}</th>
-            <th>{$lang.group_goods}</th>
+            <th><?php echo $this->_var['lang']['all_goods']; ?></th>
+            <th><?php echo $this->_var['lang']['handler']; ?></th>
+            <th><?php echo $this->_var['lang']['group_goods']; ?></th>
           </tr>
           <tr>
             <td width="42%">
@@ -846,16 +858,18 @@
               </select>
             </td>
             <td align="center">
-              <p>{$lang.price}<br /><input name="price2" type="text" size="6" /></p>
+              <p><?php echo $this->_var['lang']['price']; ?><br /><input name="price2" type="text" size="6" /></p>
               <p><input type="button" value=">" onclick="sz2.addItem(false, 'add_group_goods', goodsId, this.form.elements['price2'].value)" class="button" /></p>
               <p><input type="button" value="<" onclick="sz2.dropItem(false, 'drop_group_goods', goodsId, elements['is_single'][0].checked)" class="button" /></p>
               <p><input type="button" value="<<" onclick="sz2.dropItem(true, 'drop_group_goods', goodsId, elements['is_single'][0].checked)" class="button" /></p>
             </td>
             <td width="42%">
               <select name="target_select2" size="20" style="width:100%" multiple ondblclick="sz2.dropItem(false, 'drop_group_goods', goodsId, elements['is_single'][0].checked)">
-                {foreach from=$group_goods_list item=group_goods}
-                <option value="{$group_goods.goods_id}">{$group_goods.goods_name}</option>
-                {/foreach}
+                <?php $_from = $this->_var['group_goods_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'group_goods');if (count($_from)):
+    foreach ($_from AS $this->_var['group_goods']):
+?>
+                <option value="<?php echo $this->_var['group_goods']['goods_id']; ?>"><?php echo $this->_var['group_goods']['goods_name']; ?></option>
+                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
               </select>
             </td>
           </tr>
@@ -921,15 +935,15 @@
           <tr>
             <td colspan="3">
               <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
-              {$lang.article_title} <input type="text" name="article_title" />
-              <input type="button" value="{$lang.button_search}" onclick="searchArticle()" class="button" />
+              <?php echo $this->_var['lang']['article_title']; ?> <input type="text" name="article_title" />
+              <input type="button" value="<?php echo $this->_var['lang']['button_search']; ?>" onclick="searchArticle()" class="button" />
             </td>
           </tr>
           <!-- 鏂囩珷鍒楄〃 -->
           <tr>
-            <th>{$lang.all_article}</th>
-            <th>{$lang.handler}</th>
-            <th>{$lang.goods_article}</th>
+            <th><?php echo $this->_var['lang']['all_article']; ?></th>
+            <th><?php echo $this->_var['lang']['handler']; ?></th>
+            <th><?php echo $this->_var['lang']['goods_article']; ?></th>
           </tr>
           <tr>
             <td width="45%">
@@ -944,9 +958,11 @@
             </td>
             <td width="45%">
               <select name="target_select3" size="20" style="width:100%" multiple ondblclick="sz3.dropItem(false, 'drop_goods_article', goodsId, elements['is_single'][0].checked)">
-                {foreach from=$goods_article_list item=goods_article}
-                <option value="{$goods_article.article_id}">{$goods_article.title}</option>
-                {/foreach}
+                <?php $_from = $this->_var['goods_article_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_article');if (count($_from)):
+    foreach ($_from AS $this->_var['goods_article']):
+?>
+                <option value="<?php echo $this->_var['goods_article']['article_id']; ?>"><?php echo $this->_var['goods_article']['title']; ?></option>
+                <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
               </select>
             </td>
           </tr>
@@ -1023,7 +1039,7 @@
 		<!-- 产品功效 -->
         <table width="90%" id="func-table" style="display:;" align="center">
           <!-- 鍥剧墖鍒楄〃 -->
-		  {if $func_list|@count gt 0}
+		  <?php if ($this->_var['func_list'] | @ count > 0): ?>
 		  <tr height="20"><td></td></tr>
 		  <tr height="10"><td><font style="padding:2px 5px;background-color:#10A5D3;color:#fff;border-radius:3px;">已有产品功效</font></td></tr>  
           <tr>
@@ -1056,30 +1072,32 @@
 				
 				<tr>
 				<td style="width:100%;">
-				{foreach from=$func_list item=func key=i}
-					<table id="func_{$func.goods_func_id}" border="0" cellspacing="10" cellpadding="0" style="width:100%;">
+				<?php $_from = $this->_var['func_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('i', 'func');if (count($_from)):
+    foreach ($_from AS $this->_var['i'] => $this->_var['func']):
+?>
+					<table id="func_<?php echo $this->_var['func']['goods_func_id']; ?>" border="0" cellspacing="10" cellpadding="0" style="width:100%;">
 					<tr>				
 					<td style="vertical-align:top;width:18px;">
-					 <a href="javascript:;" onclick="if (confirm('确定要删除这个产品功效吗')) dropFunc('{$func.goods_func_id}')">[-]</a>
+					 <a href="javascript:;" onclick="if (confirm('确定要删除这个产品功效吗')) dropFunc('<?php echo $this->_var['func']['goods_func_id']; ?>')">[-]</a>
 					</td>
 					<td style="vertical-align:top;width:27px;">
-					  <input type="text" size="3" name="old_func_order[{$func.goods_func_id}]" value="{$func.goods_func_order}" disabled/>
+					  <input type="text" size="3" name="old_func_order[<?php echo $this->_var['func']['goods_func_id']; ?>]" value="<?php echo $this->_var['func']['goods_func_order']; ?>" disabled/>
 					</td>
 					<td style="width:443px;">
-					  <textarea rows="4" cols="60" name="old_func_content[{$func.goods_func_id}]">{$func.goods_func_content}</textarea>
+					  <textarea rows="4" cols="60" name="old_func_content[<?php echo $this->_var['func']['goods_func_id']; ?>]"><?php echo $this->_var['func']['goods_func_content']; ?></textarea>
 					</td>
 					<td>
-					  <textarea rows="4" cols="60" name="old_func_content_en[{$func.goods_func_id}]">{$func.goods_func_content_en}</textarea>
+					  <textarea rows="4" cols="60" name="old_func_content_en[<?php echo $this->_var['func']['goods_func_id']; ?>]"><?php echo $this->_var['func']['goods_func_content_en']; ?></textarea>
 					</td>
 					</tr>
 					</table>
-				{/foreach}
+				<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 				</td>
 				</tr>		
 			</table>
             </td>
           </tr>
-		  {/if}
+		  <?php endif; ?>
           <tr><td>&nbsp;</td></tr>
           <!-- 涓婁紶鍥剧墖 -->
 		  
@@ -1203,16 +1221,16 @@
 				<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
 				<tr>
 				<td style="width:40px; height:40px;">
-				{if $use_img.0.use_img neq ''}
-				<div id="use_img_{$goods.goods_id}">
-				<a href="javascript:;" onclick="if (confirm('确定要删除这个特色吃法图片吗')) dropUseImg('{$goods.goods_id}')">[-]</a><br>
-				<a href="goods.php?act=show_image&img_url={$use_img.0.use_img}" target="_blank">
-                <img src="../{$use_img.0.use_img}" width="200" height="" border="0" />
+				<?php if ($this->_var['use_img']['0']['use_img'] != ''): ?>
+				<div id="use_img_<?php echo $this->_var['goods']['goods_id']; ?>">
+				<a href="javascript:;" onclick="if (confirm('确定要删除这个特色吃法图片吗')) dropUseImg('<?php echo $this->_var['goods']['goods_id']; ?>')">[-]</a><br>
+				<a href="goods.php?act=show_image&img_url=<?php echo $this->_var['use_img']['0']['use_img']; ?>" target="_blank">
+                <img src="../<?php echo $this->_var['use_img']['0']['use_img']; ?>" width="200" height="" border="0" />
                 </a>
 				
 				<br>
 				</div>
-				{/if}
+				<?php endif; ?>
 				<input type="file" name="use_img" value="" id="some_name" size="20" style="width: 200px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"/>
 				</td>
 				</tr>
@@ -1224,7 +1242,7 @@
 				</td>
 		  </tr>
 				
-		  {if $use_list|@count gt 0}
+		  <?php if ($this->_var['use_list'] | @ count > 0): ?>
 		  <tr height="20"><td></td></tr>
 		  <tr height="10"><td><font style="padding:2px 5px;background-color:#10A5D3;color:#fff;border-radius:3px;">已有特色吃法</font></td></tr>  
           <tr>
@@ -1236,16 +1254,18 @@
 
 				<tr>
 				<td style="width:100%;">
-				{foreach from=$use_list item=use key=i}
-					<table id="use_{$use.goods_use_id}" border="0" cellspacing="10" cellpadding="0" style="width:100%;">
+				<?php $_from = $this->_var['use_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('i', 'use');if (count($_from)):
+    foreach ($_from AS $this->_var['i'] => $this->_var['use']):
+?>
+					<table id="use_<?php echo $this->_var['use']['goods_use_id']; ?>" border="0" cellspacing="10" cellpadding="0" style="width:100%;">
 					<tr>				
 					<td style="vertical-align:top;width:18px;">
 					<br>
-					 <a href="javascript:;" onclick="if (confirm('确定要删除这个特色吃法吗')) dropuse('{$use.goods_use_id}')">[-]</a>
+					 <a href="javascript:;" onclick="if (confirm('确定要删除这个特色吃法吗')) dropuse('<?php echo $this->_var['use']['goods_use_id']; ?>')">[-]</a>
 					</td>
 					<td style="vertical-align:top;width:27px;">
 					顺序<br>
-					  <input type="text" size="3" name="old_use_order[{$use.goods_use_id}]" value="{$use.goods_use_order}"/>
+					  <input type="text" size="3" name="old_use_order[<?php echo $this->_var['use']['goods_use_id']; ?>]" value="<?php echo $this->_var['use']['goods_use_order']; ?>"/>
 					</td>
 					<td style="width:443px;">
 					
@@ -1253,12 +1273,12 @@
 					<tr>
 					<td>
 					  标题 <br>
-				 <input type="text" size="20" name="old_use_title[{$use.goods_use_id}]" value="{$use.goods_use_title}"/>
+				 <input type="text" size="20" name="old_use_title[<?php echo $this->_var['use']['goods_use_id']; ?>]" value="<?php echo $this->_var['use']['goods_use_title']; ?>"/>
 					</td>
 					</tr>
 					<tr>
 					<td>
-					  内容<br><textarea rows="4" cols="60" name="old_use_content[{$use.goods_use_id}]">{$use.goods_use_content}</textarea>
+					  内容<br><textarea rows="4" cols="60" name="old_use_content[<?php echo $this->_var['use']['goods_use_id']; ?>]"><?php echo $this->_var['use']['goods_use_content']; ?></textarea>
 					</td>
 					</tr>
 					</table>					  
@@ -1270,12 +1290,12 @@
 					<tr>
 					<td>
 					  标题英文 <br>
-				 <input type="text" size="20" name="old_use_title_en[{$use.goods_use_id}]" value="{$use.goods_use_title_en}"/>
+				 <input type="text" size="20" name="old_use_title_en[<?php echo $this->_var['use']['goods_use_id']; ?>]" value="<?php echo $this->_var['use']['goods_use_title_en']; ?>"/>
 					</td>
 					</tr>
 					<tr>
 					<td>
-					  内容英文<br><textarea rows="4" cols="60" name="old_use_content_en[{$use.goods_use_id}]">{$use.goods_use_content_en}</textarea>
+					  内容英文<br><textarea rows="4" cols="60" name="old_use_content_en[<?php echo $this->_var['use']['goods_use_id']; ?>]"><?php echo $this->_var['use']['goods_use_content_en']; ?></textarea>
 					</td>
 					</tr>
 					</table>					  
@@ -1283,13 +1303,13 @@
 					</td>
 					</tr>
 					</table>
-				{/foreach}
+				<?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
 				</td>
 				</tr>		
 			</table>
             </td>
           </tr>
-		  {/if}
+		  <?php endif; ?>
           <tr><td>&nbsp;</td></tr>
           <!-- 涓婁紶鍥剧墖 -->
 		  
@@ -1379,29 +1399,29 @@
 		
 		
          <div class="button-div">
-          <input type="hidden" name="goods_id" value="{$goods.goods_id}" />
-          {if $code neq ''}
-          <input type="hidden" name="extension_code" value="{$code}" />
-          {/if}
+          <input type="hidden" name="goods_id" value="<?php echo $this->_var['goods']['goods_id']; ?>" />
+          <?php if ($this->_var['code'] != ''): ?>
+          <input type="hidden" name="extension_code" value="<?php echo $this->_var['code']; ?>" />
+          <?php endif; ?>
         </div>
-        <input type="hidden" name="act" value="{$form_act}" />
+        <input type="hidden" name="act" value="<?php echo $this->_var['form_act']; ?>" />
       </form>
     </div>
 </div>
 <!-- end goods form -->
-{insert_scripts files="validator.js,tab.js"}
+<?php echo $this->smarty_insert_scripts(array('files'=>'validator.js,tab.js')); ?>
 
 <script language="JavaScript">
 
-  var goodsId = '{$goods.goods_id}';
+  var goodsId = '<?php echo $this->_var['goods']['goods_id']; ?>';
   var elements = document.forms['theForm'].elements;
   var sz1 = new SelectZone(1, elements['source_select1'], elements['target_select1']);
   var sz2 = new SelectZone(2, elements['source_select2'], elements['target_select2'], elements['price2']);
   var sz3 = new SelectZone(1, elements['source_select3'], elements['target_select3']);
-  var marketPriceRate = {$cfg.market_price_rate|default:1};
-  var integralPercent = {$cfg.integral_percent|default:0};
+  var marketPriceRate = <?php echo empty($this->_var['cfg']['market_price_rate']) ? '1' : $this->_var['cfg']['market_price_rate']; ?>;
+  var integralPercent = <?php echo empty($this->_var['cfg']['integral_percent']) ? '0' : $this->_var['cfg']['integral_percent']; ?>;
 
-  {literal}
+  
   onload = function()
   {
       handlePromote(document.forms['theForm'].elements['is_promote'].checked);
@@ -1413,11 +1433,13 @@
 
       // 妫€鏌ユ柊璁㈠崟
       startCheckOrder();
-      {/literal}
-      {foreach from=$user_rank_list item=item}
-      set_price_note({$item.rank_id});
-      {/foreach}
-      {literal}
+      
+      <?php $_from = $this->_var['user_rank_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['item']):
+?>
+      set_price_note(<?php echo $this->_var['item']['rank_id']; ?>);
+      <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+      
       //document.forms['theForm'].reset();
   }
 
@@ -1454,7 +1476,7 @@
      {
       if (res.error > 0)
       {
-        alert("{$lang.goods_sn_exists}");
+        alert("<?php echo $this->_var['lang']['goods_sn_exists']; ?>");
       }
       else
       {
@@ -1526,11 +1548,13 @@
   {
     <!-- computePrice('market_price', marketPriceRate); -->
     computePrice('integral', integralPercent / 100);
-    {/literal}
-    {foreach from=$user_rank_list item=item}
-    set_price_note({$item.rank_id});
-    {/foreach}
-    {literal}
+    
+    <?php $_from = $this->_var['user_rank_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['item']):
+?>
+    set_price_note(<?php echo $this->_var['item']['rank_id']; ?>);
+    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+    
   }
 
   /**
@@ -1541,11 +1565,13 @@
     var shop_price = parseFloat(document.forms['theForm'].elements['shop_price'].value);
 
     var rank = new Array();
-    {/literal}
-    {foreach from=$user_rank_list item=item}
-    rank[{$item.rank_id}] = {$item.discount|default:100};
-    {/foreach}
-    {literal}
+    
+    <?php $_from = $this->_var['user_rank_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['item']):
+?>
+    rank[<?php echo $this->_var['item']['rank_id']; ?>] = <?php echo empty($this->_var['item']['discount']) ? '100' : $this->_var['item']['discount']; ?>;
+    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+    
     if (shop_price >0 && rank[rank_id] && document.getElementById('rank_' + rank_id) && parseInt(document.getElementById('rank_' + rank_id).value) == -1)
     {
       var price = parseInt(shop_price * rank[rank_id] + 0.5) / 100;
@@ -1570,11 +1596,13 @@
   {
     computePrice('shop_price', 1/marketPriceRate, 'market_price');
     computePrice('integral', integralPercent / 100);
-    {/literal}
-    {foreach from=$user_rank_list item=item}
-    set_price_note({$item.rank_id});
-    {/foreach}
-    {literal}
+    
+    <?php $_from = $this->_var['user_rank_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'item');if (count($_from)):
+    foreach ($_from AS $this->_var['item']):
+?>
+    set_price_note(<?php echo $this->_var['item']['rank_id']; ?>);
+    <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+    
   }
 
   /**
@@ -2220,6 +2248,6 @@
   
  
   
-  {/literal}
+  
 </script>
-{include file="pagefooter.htm"}
+<?php echo $this->fetch('pagefooter.htm'); ?>

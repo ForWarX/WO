@@ -303,13 +303,13 @@ function get_position_list()
  * @param   string  input_name  输入框名称
  * @param   string  input_value 输入框值
  */
-function create_html_editor($input_name, $input_value = '')
+function create_html_editor($input_name, $input_value = '', $input_value2 = '')
 {
     global $smarty;
 
     $umeditor="
 	<link href='../includes/umeditor/themes/default/css/umeditor.css' type='text/css' rel='stylesheet'>
-	<script type='text/plain' id='myEditor' name='111' style='width:1000px;height:240px;'>$input_value
+	<script type='text/plain' id='myEditor' name='editor_cn' style='width:1000px;height:240px;'>$input_value
 </script>
 	<script type='text/javascript' charset='utf-8' src='../includes/umeditor/umeditor.config.js'></script>
     <script type='text/javascript' charset='utf-8' src='../includes/umeditor/umeditor.min.js'></script>
@@ -320,7 +320,7 @@ function create_html_editor($input_name, $input_value = '')
 	</script>
 	";
     $umeditor2="
-	<script type='text/plain' id='myEditor2' name='222' style='width:1000px;height:240px;'>$input_value
+	<script type='text/plain' id='myEditor2' name='editor_en' style='width:1000px;height:240px;'>$input_value2
 </script>
 	<script type='text/javascript' charset='utf-8' src='../includes/umeditor/umeditor.config.js'></script>
     <script type='text/javascript' charset='utf-8' src='../includes/umeditor/umeditor.min.js'></script>
