@@ -309,7 +309,7 @@ function create_html_editor($input_name, $input_value = '')
 
     $umeditor="
 	<link href='../includes/umeditor/themes/default/css/umeditor.css' type='text/css' rel='stylesheet'>
-	<script type='text/plain' id='myEditor' style='width:1000px;height:240px;'>$input_value
+	<script type='text/plain' id='myEditor' name='111' style='width:1000px;height:240px;'>$input_value
 </script>
 	<script type='text/javascript' charset='utf-8' src='../includes/umeditor/umeditor.config.js'></script>
     <script type='text/javascript' charset='utf-8' src='../includes/umeditor/umeditor.min.js'></script>
@@ -319,7 +319,19 @@ function create_html_editor($input_name, $input_value = '')
 		UM.getEditor('myEditor').focus();
 	</script>
 	";
-    $smarty->assign('FCKeditor', $umeditor);
+    $umeditor2="
+	<script type='text/plain' id='myEditor2' name='222' style='width:1000px;height:240px;'>$input_value
+</script>
+	<script type='text/javascript' charset='utf-8' src='../includes/umeditor/umeditor.config.js'></script>
+    <script type='text/javascript' charset='utf-8' src='../includes/umeditor/umeditor.min.js'></script>
+    <script type='text/javascript' src='../includes/umeditor/lang/zh-cn/zh-cn.js'></script>
+	<script type='text/javascript'>
+  		var um = UM.getEditor('myEditor2');
+		UM.getEditor('myEditor2').focus();
+	</script>
+	";
+    $smarty->assign('umeditor', $umeditor);
+    $smarty->assign('umeditor2', $umeditor2);
 }
 
 /**

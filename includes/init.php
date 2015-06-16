@@ -191,6 +191,7 @@ if (!defined('INIT_NO_SMARTY'))
     else
     {
         $smarty->assign('ecs_css_path', 'themes/' . $_CFG['template'] . '/style.css');
+        $smarty->assign('ecs_awesome_font_css_path', 'themes/' . $_CFG['template'] . '/font-awesome/css/font-awesome.min.css');
         $smarty->assign('ecs_css_mobile_path', 'themes/' . $_CFG['template'] . '/mobile.css');
 		$smarty->assign('ecs_theme_path', 'themes/' . $_CFG['template'] . '/');
 		$smarty->assign('ecs_js_path', 'themes/' . $_CFG['template'] . '/js/');

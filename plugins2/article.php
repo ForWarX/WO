@@ -110,7 +110,7 @@ if ($_REQUEST['act'] == 'add')
 //-- 添加文章
 /*------------------------------------------------------ */
 if ($_REQUEST['act'] == 'insert')
-{
+{	showr($_REQUEST);
     /* 权限判断 */
     admin_priv('article_manage');
 

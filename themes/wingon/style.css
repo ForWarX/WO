@@ -212,6 +212,7 @@ margin:0 auto;
   text-align: center;
 }
 .feature .icon {
+  position: relative;
   display: block;
   margin: 0 auto 0.25em;
   border: 1px solid #ccc;
@@ -221,16 +222,44 @@ margin:0 auto;
   font-size: 4.5em;
   text-decoration: none;
   border-radius: 100%;
+  -moz-transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-o-transition: all 0.5s ease;transition: all 0.5s ease;
 }
-.icon-settings:before {
+.icon-news:before, .icon-company:before {
+  content:  url(images/news.png);
+    font-family: 'CrossIcons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+	top: 20%;
+  left: 25%;
+  -moz-transition: all 0.5s ease;-webkit-transition: all 0.5s ease;-o-transition: all 0.5s ease;transition: all 0.5s ease;
+}
+.icon-news:before {
   content:  url(images/news.png);
 }
+.icon-company:before {
+  content:  url(images/company.png);
+}
 
+.icon-news:hover:before {
+	content:  url(images/news-white.png);
+}
+.icon-company:hover:before {
+	content:  url(images/company-white.png);
+}
+/*.icon-news:hover.feature .icon {
+background-color:#000;
+}*/
 
-
-
-
-
+.icon-news:hover {
+	background: #19c589;
+}
 
 
 

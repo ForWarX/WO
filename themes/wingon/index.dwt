@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="icon" href="animated_favicon.gif" type="image/gif" />
 <link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" media="only screen and (min-width: 400px)" href="{$ecs_css_mobile_path}" />
+<link rel="stylesheet" href="{$ecs_awesome_font_css_path}">
 <link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
 {* 包含脚本文件 *}
 {insert_scripts files='common.js,index.js,jquery.js,jquery.lazyload.js,jssor.js,jssor.slider.js,vertical_nav.js,onload.js'}
@@ -224,21 +224,28 @@
 <div class="container">
 <!--动态新闻-->
 <div class="col grid3 pct" style="">
-<div class="feature"><a class="icon icon-settings" href="#"></a><h3>Easy Setup</h3><p class="small">Easiest and quickest way to create a website very fast.</p></div>
+<div class="feature"><a class="icon icon-news" href="#"></a><h3>Easy Setup</h3><p class="small">Easiest and quickest way to create a website very fast.</p></div>
 </div>
 <!--关于我们-->
 <div class="col grid3 pct" style="">
-<div class="feature"><a class="icon icon-html5" href="#"></a><h3>Valid HTML5</h3><p class="small">We offer W3C validated files on all of our HTML5 themes.</p></div>
+<div class="feature"><a class="icon icon-company" href="#"></a><h3>Valid HTML5</h3><p class="small">We offer W3C validated files on all of our HTML5 themes.</p></div>
 </div>
 <!--联系表单-->
 <div class="col grid3 pct" style="">
-<div class="feature"><a class="icon icon-heart" href="#"></a><h3>Pixel Perfect</h3><p class="small">Based on a 12 column grid system, with every pixel in place.</p></div>
+<div class="feature"><a class="icon icon-contact-form" href="#"></a><h3>Pixel Perfect</h3><p class="small">Based on a 12 column grid system, with every pixel in place.</p></div>
 </div>
 </div>
 </div>
 
 
-
+<script>
+/*jQuery('.icon-settings').mouseover(function() {
+  $( this ).fadeOut( 100 );
+});
+jQuery('.icon-settings').mouseout(function() {
+  $( this ).fadeIn( 500 );
+});*/
+</script>
 
 
 
