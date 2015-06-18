@@ -41,8 +41,21 @@ if (!$smarty->is_cached('article.dwt', $cache_id))
 
     if (empty($article))
     {
-        ecs_header("Location: ./\n");
-        exit;
+        /*ecs_header("Location: ./\n");
+        exit;*/
+		
+		
+		
+		assign_template();
+		
+		$position = assign_ur_here();
+		$smarty->assign('page_title',      $position['title']);    // 页面标题
+		$smarty->assign('ur_here',         $position['ur_here']);  // 当前位置
+		$smarty->assign('helps',           get_shop_help());       // 网店帮助
+		
+		$smarty->display('article_home.dwt', $cache_id);
+		return true;
+
     }
 
     if (!empty($article['link']) && $article['link'] != 'http://' && $article['link'] != 'https://')

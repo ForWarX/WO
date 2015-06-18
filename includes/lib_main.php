@@ -1831,7 +1831,7 @@ function assign_template($ctype = '', $catlist = array())
     $smarty->assign('navigator_list',        get_navigator($ctype, $catlist));  //自定义导航栏
 	$smarty->assign('language_a', $language_a);
 	$smarty->assign('web_site_description', $web_site_description);
-	
+
     if (!empty($GLOBALS['_CFG']['search_keywords']))
     {
         $searchkeywords = explode(',', trim($GLOBALS['_CFG']['search_keywords']));

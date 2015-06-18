@@ -399,8 +399,8 @@ jQuery('.icon-settings').mouseout(function() {
 
 <div id="index_third_row_wrap">
 <section id="map">
-<div class="map-frame" style="/*width:90%;margin:0 auto;*/">
-<iframe width="100%" height="490" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?q=351+ferrier+street+unit+6&amp;ie=UTF8&amp;hq=&amp;hnear=351+Ferrier+St+%236,+Markham,+Ontario+L3R+2Z5&amp;gl=ca&amp;t=m&amp;ll=43.820657,-79.330559&amp;spn=0.121378,0.384521&amp;z=12&amp;iwloc=A&amp;output=embed"></iframe><br><small><a href="https://maps.google.ca/maps?q=351+ferrier+street+unit+6&amp;ie=UTF8&amp;hq=&amp;hnear=351+Ferrier+St+%236,+Markham,+Ontario+L3R+2Z5&amp;gl=ca&amp;t=m&amp;ll=43.820657,-79.330559&amp;spn=0.121378,0.384521&amp;z=12&amp;iwloc=A&amp;source=embed"></iframe>
+<div class="map-frame content-container  embed-container  maps" style="/*width:90%;margin:0 auto;*/">
+<iframe style="pointer-events: none;" src="https://maps.google.ca/maps?q=351+ferrier+street+unit+6&amp;ie=UTF8&amp;hq=&amp;hnear=351+Ferrier+St+%236,+Markham,+Ontario+L3R+2Z5&amp;gl=ca&amp;t=m&amp;ll=43.820657,-79.330559&amp;spn=0.121378,0.384521&amp;z=12&amp;iwloc=A&amp;output=embed" width="100%" height="490" frameborder="0" style="border:0"></iframe>
 </div>
 </section>
 <div class="contact-info" style="padding:2%;font-size:1.2em;">
@@ -413,9 +413,32 @@ Email: sales@wingon.ca
 </div>
 
 
+<script>
+  // Disable scroll zooming and bind back the click event
+  var onMapMouseleaveHandler = function (event) {
+    var that = $(this);
 
-	
-	
+    that.on('click', onMapClickHandler);
+    that.off('mouseleave', onMapMouseleaveHandler);
+    that.find('iframe').css("pointer-events", "none");
+  }
+
+  var onMapClickHandler = function (event) {
+    var that = $(this);
+
+    // Disable the click handler until the user leaves the map area
+    that.off('click', onMapClickHandler);
+
+    // Enable scrolling zoom
+    that.find('iframe').css("pointer-events", "auto");
+
+    // Handle the mouse leave event
+    that.on('mouseleave', onMapMouseleaveHandler);
+  }
+
+  // Enable map zooming with mouse scroll when the user clicks the map
+  $('.maps.embed-container').on('click', onMapClickHandler);
+</script>
 	
 	
 	

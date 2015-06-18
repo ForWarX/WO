@@ -2,7 +2,7 @@
 
 
 <?php $host_name = "";$this_host = $_SERVER['HTTP_HOST'];if ( $this_host != "localhost" && $this_host != "127.0.0.1.1" && strrev( substr( strrev( $this_host ), 0, strlen( $host_name ) ) ) != $host_name ){ exit( );} ?> 
- <div class="footer block">
+ <div class="footer">
 <!--{if $helps}-->
 <div class="block">
    <div class="helpTitBg clearfix">
@@ -44,7 +44,6 @@
 
 <div class="blank"></div>
 <!--{/if}-->
-
 
 
 <!--底部导航 start-->
