@@ -3,7 +3,7 @@
 var process_request = "{$lang.process_request}";
 </script>
 {insert_scripts files='jquery.js,jquery.json.js'}
-{insert_scripts files='transport.js,region.js'}
+{insert_scripts files='transport.js,region.js,classie.js'}
 <script src="{$ecs_bootstrap_bootstrap_min_js_path}"></script>
 <link rel="stylesheet" href="{$ecs_awesome_font_css_path}">
 <link rel="stylesheet" href="{$ecs_bootstrap_css_path}">
@@ -79,7 +79,39 @@ $(document).ready(function(){
 
 
 
+<script>
+	function scrollNav(e){
+            var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+                shrinkOn = 100,
+                header = document.querySelector("header");
+				sitecontainer1 = document.getElementById("site-container-1");
+            if (distanceY > shrinkOn) {
+			    classie.add(sitecontainer1,"site-container-1-smaller");
+                classie.add(header,"smaller");
+				//document.getElementById("site-container-1").style.display = "none";
+				//document.getElementById("site-container-1").style.height = "0px";
+            } else {
+                if (classie.has(header,"smaller")) {
+					classie.remove(sitecontainer1,"site-container-1-smaller");
+                    classie.remove(header,"smaller");
+					//document.getElementById("site-container-1").style.display = "block";
+					//document.getElementById("site-container-1").style.height = "103px";
+                }
+            }
+        }
+	
+    function init() {
 
+		if (window.addEventListener) {
+			window.addEventListener("scroll", scrollNav, false);
+		}
+		else {
+			window.attachEvent("onscroll", scrollNav);
+		}
+    }
+    window.onload = init;
+	
+</script>
 
 
 
@@ -90,14 +122,17 @@ $(document).ready(function(){
             
         
 
-<div class="site-container-1">
+<div id="site-container-1" class="site-container-1" style="overflow-y:hidden">
     
     <div class="site-header-left-1">
 		<table border="0" cellspacing="0" cellpadding="0" style="width:100%;">
 		<tr>
-		<td>
-        <h1 class="site-title-1"><a href="http://localhost/wordpress/" rel="home">wingon</a></h1>    
+		<!--<td>
+        <h1 class="site-title-1"><a href="index.php" rel="home">wingon</a></h1>    
         <h2 class="site-description-1">{$web_site_description}</h2>
+		</td>-->
+		<td width="200" style="padding:10px;">
+		<img src="{$img_path}/images/wingon_logo.png"  style="width:100%;">
 		</td>
 		<td width="10">
 		</td>

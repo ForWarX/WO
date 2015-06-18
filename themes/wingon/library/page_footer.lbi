@@ -156,6 +156,8 @@ var __dcid = __dcid || [];__dcid.push(["DigiCertClickID_ykke0EsB", "7", "s", "wh
     }
     window.onscroll = function () {
         var num = scrollTop();
+		
+			  
         if (num > 200) {
             document.getElementById("scroll_to_top").style.display = "block";
 			if (num > 400){
@@ -176,4 +178,5 @@ var __dcid = __dcid || [];__dcid.push(["DigiCertClickID_ykke0EsB", "7", "s", "wh
        $('body, html').animate({scrollTop:0}, 100);
     }
 });
+
 </script>

@@ -91,7 +91,7 @@ body, button, input, select, textarea {
 }
   
 .main-navigation-1{
-  background-color: #414144;
+  background-color: #19c589;
   clear: both;
   display: block;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.08);
@@ -120,7 +120,52 @@ body, button, input, select, textarea {
 .site-boxed {
 	background-color: #FFF;
 }
+.site-header-1{
+            text-align: center;
+            /*line-height: 108px;*/
 
+            background: #335C7D;
+            
+			background:url(images/body-backgroung-image.png);
+            -webkit-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+			z-index:2;
+}
+
+header {
+width: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #0683c9;
+	    -webkit-transition: all 0.01s;
+    -moz-transition: all 0.01s;
+    -ms-transition: all 0.01s;
+    -o-transition: all 0.01s;
+    transition: all 0.01s;
+}
+
+  header.smaller { 
+  border-bottom:1px solid #00884A;
+ -webkit-box-shadow: 1px 1px 14px 0px rgba(50, 50, 50, 0.72);
+-moz-box-shadow:    1px 1px 14px 0px rgba(50, 50, 50, 0.72);
+box-shadow:         1px 1px 14px 0px rgba(50, 50, 50, 0.72);
+}
+
+  
+header .site-container-1{height:103px;
+	    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+	}	 
+
+header .site-container-1-smaller{height:0px;}	
+
+	
 .site-header {
 	background-color: #FFF;
     
@@ -305,7 +350,7 @@ background-color:#000;
 
 /*Hover state for top level links*/
 #site-navigation-1 li:hover a {
-	background: #19c589;
+	background: #414141;
 }
 
 /*Style for dropdown links*/
@@ -3176,7 +3221,7 @@ border-color: transparent #5c4192 transparent transparent;position:absolute;top:
 	background-color:#676767;
 }
 
- #scroll_to_top{display:none;height:30px;width:45px;background:url(images/gototop.png) no-repeat center center;  -moz-transition: all 0.5s ease-in-out;
+ #scroll_to_top{display:none;height:50px;width:50px;background:url(images/gototop.png) no-repeat center center;  -moz-transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;}
