@@ -1,4 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <script type="text/javascript">
 var process_request = "{$lang.process_request}";
 </script>
@@ -81,24 +82,31 @@ $(document).ready(function(){
 
 <script>
 	function scrollNav(e){
+			var screenW = jQuery('body').innerWidth();
+			var screenH = jQuery('body').height();
+			
             var distanceY = window.pageYOffset || document.documentElement.scrollTop,
                 shrinkOn = 100,
                 header = document.querySelector("header");
 				sitecontainer1 = document.getElementById("site-container-1");
 				blankdiv = document.getElementById("blank-div");
             if (distanceY > shrinkOn) {
-			    classie.add(sitecontainer1,"site-container-1-smaller");
-                classie.add(header,"smaller");
-                classie.add(blankdiv,"blank-div-smaller");
-				//document.getElementById("site-container-1").style.display = "none";
-				//document.getElementById("site-container-1").style.height = "0px";
-            } else {
-                if (classie.has(header,"smaller")) {
-					classie.remove(sitecontainer1,"site-container-1-smaller");
-                    classie.remove(header,"smaller");
-                    classie.remove(blankdiv,"blank-div-smaller");
-					//document.getElementById("site-container-1").style.display = "block";
-					//document.getElementById("site-container-1").style.height = "103px";
+				if (screenW > 760){
+					classie.add(sitecontainer1,"site-container-1-smaller");
+					classie.add(header,"smaller");
+					classie.add(blankdiv,"blank-div-smaller");
+					//document.getElementById("site-container-1").style.display = "none";
+					//document.getElementById("site-container-1").style.height = "0px";
+					}
+			} else {
+				if (screenW > 760){
+					if (classie.has(header,"smaller")) {
+						classie.remove(sitecontainer1,"site-container-1-smaller");
+						classie.remove(header,"smaller");
+						classie.remove(blankdiv,"blank-div-smaller");
+						//document.getElementById("site-container-1").style.display = "block";
+						//document.getElementById("site-container-1").style.height = "103px";
+					}
                 }
             }
         }

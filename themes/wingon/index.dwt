@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Keywords" content="{$keywords}" />
 <meta name="Description" content="{$description}" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <!-- TemplateBeginEditable name="doctitle" -->
 <title>{$page_title}</title>
 <!-- TemplateEndEditable -->
@@ -259,7 +258,7 @@
 <tr>
 <td style="width:5%;">
 </td>
-<td style="text-align:left;width:20%;vertical-align:top;">
+<td style="text-align:left;width:25%;vertical-align:top;">
   <label class="control-label" for="contact-name"><i class="fa fa-user"></i>&nbsp;{$_LANG.contact_form_name}</label>
 </td>
 <td style="text-align:right;">
@@ -281,7 +280,7 @@
 <tr>
 <td style="width:5%;">
 </td>
-<td style="text-align:left;width:20%;vertical-align:top;">
+<td style="text-align:left;width:25%;vertical-align:top;">
   <label class="control-label" for="contact-email"><i class="fa fa-envelope"></i>&nbsp;{$_LANG.contact_form_email}</label>
 </td>
 <td style="text-align:right;">
@@ -303,7 +302,7 @@
 <tr>
 <td style="width:5%;">
 </td>
-<td style="text-align:left;width:20%;vertical-align:top;">
+<td style="text-align:left;width:25%;vertical-align:top;">
   <label class="control-label" for="contact-subject"><i class="fa fa-pencil"></i>&nbsp;{$_LANG.contact_form_subject}</label>
 </td>
 <td style="text-align:right;">
@@ -325,7 +324,7 @@
 <tr>
 <td style="width:5%;">
 </td>
-<td style="text-align:left;width:20%;vertical-align:top;">
+<td style="text-align:left;width:25%;vertical-align:top;">
   <label class="control-label" for="contact-content"><i class="fa fa-pencil-square-o"></i>&nbsp;{$_LANG.contact_form_content}</label>
 </td>
 <td style="text-align:right;">
@@ -346,7 +345,7 @@
 <tr>
 <td style="width:5%;">
 </td>
-<td style="text-align:left;width:20%;vertical-align:top;">
+<td style="text-align:left;width:25%;vertical-align:top;">
   <label class="control-label" for="contact-submit"></label>
 </td>
 <td style="text-align:right;">

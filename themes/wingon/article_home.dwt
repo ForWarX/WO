@@ -29,7 +29,7 @@
 
 
 <div id="pin-container">
-<div class="grid class" >...</div>
+<div class="grid class" style="">...</div>
 <div class="grid class"><img src="{$img_path}/images/wingon_logo.png"></div>
 <div class="grid class"><img src="{$img_path}/images/wingon_logo.png"></div>
 <div class="grid class"><img src="{$img_path}/images/wingon_logo.png"></div>

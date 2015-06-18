@@ -155,19 +155,26 @@ var __dcid = __dcid || [];__dcid.push(["DigiCertClickID_ykke0EsB", "7", "s", "wh
     }
     window.onscroll = function () {
         var num = scrollTop();
-		
+		var screenW = jQuery('body').innerWidth();
+		var screenH = jQuery('body').height();
+			
 			  
         if (num > 200) {
-            document.getElementById("scroll_to_top").style.display = "block";
-			if (num > 400){
-				if(document.getElementById('cd-vertical-nav') != null){
-					document.getElementById('cd-vertical-nav').style.display = 'block';
+			if (screenW > 760){
+				document.getElementById("scroll_to_top").style.display = "block";
+				if (num > 400){
+					if(document.getElementById('cd-vertical-nav') != null){
+						document.getElementById('cd-vertical-nav').style.display = 'block';
+					}
 				}
-		}
+			}
+				
         } else {
+					if (screenW > 760){
             document.getElementById("scroll_to_top").style.display = "none";
 			if(document.getElementById('cd-vertical-nav') != null){
 				document.getElementById('cd-vertical-nav').style.display = 'none';
+			}
 			}
         }
     };
