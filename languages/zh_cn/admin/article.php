@@ -21,6 +21,7 @@ $_LANG['lable_description_en'] ='网页描述 (EN)';
 $_LANG['content'] ='文章内容';
 $_LANG['lable_content_cn'] = '中文';
 $_LANG['lable_content_en'] = '英文';
+$_LANG['lable_date'] = '文章日期';
 $_LANG['is_open'] ='是否显示';
 $_LANG['article_id'] ='编号';
 $_LANG['add_time'] ='添加日期';

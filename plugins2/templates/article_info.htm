@@ -1,6 +1,9 @@
 <!-- $Id: article_info.htm 16780 2009-11-09 09:28:30Z sxc_shop $ -->
 {include file="pageheader.htm"}
 {insert_scripts files="../js/utils.js,selectzone.js,validator.js"}
+
+<script type="text/javascript" src="../js/calendar.php?lang={$cfg_lang}"></script>
+<link href="../js/calendar/calendar.css" rel="stylesheet" type="text/css" />
 <!-- start goods form -->
 <div class="tab-div">
   <div id="tabbar-div">
@@ -73,6 +76,10 @@
         <td class="narrow-label">{$lang.lable_description_en}</td>
         <td><textarea name="description_en" id="description_en" cols="40" rows="5">{$article.description_en|escape}</textarea></td>
       </tr>
+	  <tr>
+		  <td class="narrow-label">{$lang.lable_date}</td>
+		  <td><input name="article_date" type="text" id="article_date" size="12" value='{$article.article_date}' readonly /><input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('article_date', '%Y-%m-%d', false, false, 'selbtn1');" value="{$lang.btn_select}" class="button"/></td>
+	  </tr>
       <tr>
         <td class="narrow-label">{$lang.external_links}</td>
         <td><input name="link_url" type="text" id="link_url" value="{if $article.link neq ''}{$article.link|escape}{else}http://{/if}" maxlength="60" /></td>
