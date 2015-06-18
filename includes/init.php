@@ -195,6 +195,8 @@ if (!defined('INIT_NO_SMARTY'))
         $smarty->assign('ecs_bootstrap_css_path', 'themes/' . $_CFG['template'] . '/bootstrap-3.3.5-dist/css/bootstrap.css');
         $smarty->assign('ecs_bootstrap_theme_css_path', 'themes/' . $_CFG['template'] . '/bootstrap-3.3.5-dist/css/bootstrap-theme.css');
         $smarty->assign('ecs_bootstrap_bootstrap_min_js_path', 'themes/' . $_CFG['template'] . '/bootstrap-3.3.5-dist/js/bootstrap.min.js');
+        $smarty->assign('ecs_water_fall_css_path', 'themes/' . $_CFG['template'] . '/waterfall.css');
+        $smarty->assign('ecs_blocksit_js_path', 'js/blocksit.js');
         $smarty->assign('ecs_css_mobile_path', 'themes/' . $_CFG['template'] . '/mobile.css');
 		$smarty->assign('ecs_theme_path', 'themes/' . $_CFG['template'] . '/');
 		$smarty->assign('ecs_js_path', 'themes/' . $_CFG['template'] . '/js/');

@@ -233,6 +233,14 @@ header .site-container-1-smaller{height:0px;}
     outline: 0;
     width: 230px;
 }
+.blank-div {height:161px;}
+.blank-div-smaller {height:58px;}
+
+
+
+#site-navigation-1 ul .cur{background-color:#414141;}
+
+
 
 #index_first_row_wrap{
 
@@ -344,7 +352,7 @@ background-color:#000;
 #site-navigation-1 li {
 	display:inline-block;
 	float: left;
-	margin-right: 1px;
+	/*margin-right: 1px;*/
 }
 
 /*Style for menu links*/
@@ -466,6 +474,84 @@ input[type=checkbox]:checked ~ #menu{
 }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*article_home*/
+
+
+
+.grid {
+	
+	  min-height: 100px;
+	  padding: 15px;
+	  background: #fff;
+	  margin: 8px;
+	  font-size: 12px;
+	  float: left;
+	  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	  -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	  -webkit-transition: top 1s ease, left 1s ease;
+	  -moz-transition: top 1s ease, left 1s ease;
+	  -o-transition: top 1s ease, left 1s ease;
+	  -ms-transition: top 1s ease, left 1s ease;
+
+}
+
+.grid img {
+
+
+  width:100%;
+
+}
+
+#pin-container {
+  position: relative;
+  margin: 0 auto 25px;
+  width:90%;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
