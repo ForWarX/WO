@@ -488,7 +488,7 @@ position:relative;
 
 #scroll_to_top{display:none;}
 
-.grid{position:relative!important;}
+.grid{}
 
 }
 
@@ -529,39 +529,49 @@ position:relative;
 
 
 
-.grid {
+
+
+#pin-container{
+	position:relative;
+	margin:0 auto 25px;
+	padding-bottom: 10px;
+	width:100%;
+}
+.grid{
+	width:188px;
+	min-height:100px;
+	padding: 15px;
+	background:#fff;
+	margin:8px;
+	font-size:12px;
+	float:left;
+	box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
 	
-	  min-height: 100px;
-	  padding: 15px;
-	  background: #fff;
-	  margin: 8px;
-	  font-size: 12px;
-	  float: left;
-	  box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-	  -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-	  -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-	  -webkit-transition: top 1s ease, left 1s ease;
-	  -moz-transition: top 1s ease, left 1s ease;
-	  -o-transition: top 1s ease, left 1s ease;
-	  -ms-transition: top 1s ease, left 1s ease;
-
+	-webkit-transition: top 1s ease, left 1s ease;
+	-moz-transition: top 1s ease, left 1s ease;
+	-o-transition: top 1s ease, left 1s ease;
+	-ms-transition: top 1s ease, left 1s ease;
 }
 
-.grid img {
-
-
-  width:100%;
-
+.grid strong {
+	border-bottom:1px solid #ccc;
+	margin:10px 0;
+	display:block;
+	padding:0 0 5px;
+	font-size:17px;
 }
-
-#pin-container {
-  position: relative;
-  margin: 0 auto 25px;
-  width:90%;
+.grid .meta{
+	text-align:right;
+	color:#777;
+	font-style:italic;
 }
-
-
-
+.grid .imgholder img{
+	max-width:100%;
+	background:#ccc;
+	display:block;
+}
 
 
 
@@ -1135,13 +1145,13 @@ background: url(images/new_main_line.gif) no-repeat right center;} */
 
   
    /*帮助*/
- .footer {width: auto!important;border-top: 3px solid #f23622;clear: both;padding-top: 2.55em;margin-top:10px;}
-.footer .helpTitBg{ margin: 0 auto 1.02041% 30px;}
+ .footer {width: auto!important;border-top: 5px solid #19C589;clear: both;padding-top: 2.55em;margin-top:10px;}
+.footer .helpTitBg{ margin: 0 auto 1.02041% 30px;width: 90%;}
 .helpTitBg{ overflow:hidden; float:left; clear:both}
 .footer .helpTitBg dl{ width:20%;}
 .helpTitBg dl{float:left;}
 .helpTitBg dt{ width:auto; height:25px; line-height:25px;   text-align:left;
-color:#f23622; margin:0 0 0.6em; font-weight:800;}
+color:#19C589;margin:0 0 0.6em; font-weight:800;}
 .helpTitBg dt a{font-family:"微软雅黑";font-size: 1.5em;font-weight: 500; color:#000000}
 .footer .helpTitBg dt {font-size: 1.5em;text-decoration:none;}
 .helpTitBg dt img{ vertical-align:middle}

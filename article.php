@@ -12,6 +12,11 @@ define('IN_ECS', true);
 
 require(dirname(__FILE__) . '/includes/init.php');
 
+require(ROOT_PATH . 'includes/cls_json.php');
+
+
+
+
 if ((DEBUG_MODE & 2) != 2)
 {
     $smarty->caching = true;
@@ -21,6 +26,9 @@ if ((DEBUG_MODE & 2) != 2)
 //-- INPUT
 /*------------------------------------------------------ */
 
+
+
+if ($_REQUEST['act'] == ''){
 $_REQUEST['id'] = isset($_REQUEST['id']) ? intval($_REQUEST['id']) : 0;
 $article_id     = $_REQUEST['id'];
 if(isset($_REQUEST['cat_id']) && $_REQUEST['cat_id'] < 0)
@@ -44,14 +52,19 @@ if (!$smarty->is_cached('article.dwt', $cache_id))
         /*ecs_header("Location: ./\n");
         exit;*/
 		
-		
-		
+		$init_article = get_article_info_init();
+		if ($init_article['error'] == ''){
+			$init_article = $init_article['result'];
+		}
 		assign_template();
 		
 		$position = assign_ur_here();
 		$smarty->assign('page_title',      $position['title']);    // 页面标题
 		$smarty->assign('ur_here',         $position['ur_here']);  // 当前位置
 		$smarty->assign('helps',           get_shop_help());       // 网店帮助
+		
+		
+		$smarty->assign('init_article',    $init_article);       // 初始化的文章
 		
 		$smarty->display('article_home.dwt', $cache_id);
 		return true;
@@ -139,9 +152,181 @@ else
     $smarty->display('article_pro.dwt', $cache_id);
 }
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+elseif ($_REQUEST['act'] == 'scrollGetMoreArticle')
+{
+	if (isset($_REQUEST['num_record']) === false || $_REQUEST['num_record'] == ''){$_REQUEST['num_record'] = 4 ;}
+	$num_record_start_from = $_REQUEST['num_record_start_from'];
+	$num_record = 			 $_REQUEST['num_record'];
+	$more_article = get_article_info_init($num_record_start_from,$num_record);
+	$error = '';
+	$more_article_info = '';
+	if ($more_article['error'] == ''){
+		$more_article_info = $more_article['result'];
+	}
+	elseif($more_article['error'] == 1){
+		$error = 1;
+	}
+	
+	
+	$json   = new JSON;
+	$result = array('error' => $error, 'message' => '', 'content' => $more_article_info, 'num_record' => $num_record_start_from + $num_record);
+
+
+    clear_cache_files();
+	
+    die($json->encode($result));
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*------------------------------------------------------ */
 //-- PRIVATE FUNCTION
 /*------------------------------------------------------ */
+
+
+
+
+
+
+/**
+ * 获得初始化新闻页的文章
+ *
+ * @access  private
+ * @param   integer     $article_id
+ * @return  array
+ */
+function get_article_info_init($num_record_start_from=0,$num_record=10)
+{
+	$result = array();
+	$result['error'] = '';
+	$result['result'] = array();
+
+	$sql ="SELECT count(*) FROM " . $GLOBALS['ecs']->table('article');
+	$count = $GLOBALS['db']->getOne($sql);
+	if ($num_record_start_from > $count){$result['error'] = 1;return $result;}
+	
+    /* 获得文章的信息 */
+    /*$sql = "SELECT article_id, title".$_SESSION['language'].", description".$_SESSION['language'].", content".$_SESSION['language'].", article_date  FROM " .$$GLOBALS['ecs']->table('article'). " WHERE is_open=1 ORDER BY article_date LIMIT 1";
+    $row = $GLOBALS['db']->getRow($sql);*/
+	
+	
+	$sql = "SELECT article_id, title".$_SESSION['language'].", author, description".$_SESSION['language'].", content".$_SESSION['language'].", article_date ".
+            "FROM " .$GLOBALS['ecs']->table('article')." WHERE is_open=1 ORDER BY article_date DESC LIMIT $num_record_start_from, $num_record";
+    $row = $GLOBALS['db']->getAll($sql);
+
+	if (empty($row)){$result['error'] = 1;return $result;}
+	$init_article_info = array();
+	foreach ($row as $key => $value){
+		
+		$init_article_info[$key]['article_id'] = $value['article_id'];
+		$init_article_info[$key]['title'] = $value['title'.$_SESSION['language']];
+		$init_article_info[$key]['description'] = $value['description'.$_SESSION['language']];
+		
+		
+		
+		$init_article_info[$key]['content'] = $value['content'.$_SESSION['language']];
+		$condition_start = '<img';
+		$condition_end = '>';
+		$img_pos_start = stripos($init_article_info[$key]['content'], $condition_start);
+		$img_pos_end   = stripos($init_article_info[$key]['content'], $condition_end, $img_pos_start);
+		$img_tag = substr($init_article_info[$key]['content'], $img_pos_start, $img_pos_end - $img_pos_start + 1);
+		
+		$condition_start = 'src="';
+		$condition_end = '"';
+		$src_pos_start = stripos($img_tag, $condition_start);
+		$src_pos_end   = stripos($img_tag, $condition_end, $img_pos_start);
+		$src = substr($img_tag, $src_pos_start + 5, $src_pos_end - $src_pos_start - 5);
+		
+		$init_article_info[$key]['src'] = $src;
+		
+		$init_article_info[$key]['content'] = strip_tags($init_article_info[$key]['content']);
+		$limitation = floor(strlen($init_article_info[$key]['content']) * 0.058);
+		$init_article_info[$key]['content'] = ellipsis($init_article_info[$key]['content'],$limitation);
+		
+		$init_article_info[$key]['article_date'] = $value['article_date'];
+		
+	}
+	
+	$result['result'] = $init_article_info;
+	$row = array();$init_article_info = array();
+    return $result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * 获得指定的文章的详细信息
