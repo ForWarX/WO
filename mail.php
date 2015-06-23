@@ -12,7 +12,7 @@ require(ROOT_PATH . '/includes/cls_json.php');
 
 
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "edwardfhsiao@gmail.com";
+    $email_to = "it@pbcc.ca";
     $email_subject = "=?UTF-8?B?".base64_encode($_REQUEST['contact-subject'])."?=";
 	
 	$headers = '';
