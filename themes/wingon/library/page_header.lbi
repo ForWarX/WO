@@ -4,11 +4,11 @@
 var process_request = "{$lang.process_request}";
 </script>
 
-{insert_scripts files='transport_modifyed.js,region.js,classie.js'}
+{insert_scripts files='transport_modifyed.js,region.js,classie.js,sweetalert.min.js'}
 <script src="{$ecs_bootstrap_bootstrap_min_js_path}"></script>
-<link rel="stylesheet" href="{$ecs_awesome_font_css_path}">
 <link rel="stylesheet" href="{$ecs_bootstrap_css_path}">
 <link rel="stylesheet" href="{$ecs_bootstrap_theme_css_path}">
+<link rel="stylesheet" href="{$ecs_sweetalertcss_path}">
 
 <script language="javascript">
 	/*var obj11 = document.getElementsByClassName("g-menu")[0];

@@ -743,4 +743,21 @@ $_LANG['contact_form_content'] = 'Content';
 $_LANG['contact_form_content_placeholder'] = 'Hi, I am wondering ...';
 $_LANG['contact_form_submit'] = 'Submit';
 
+
+$_LANG['contact_email_invalid'] = 'The e-mail you entered does not appear to be valid.';
+$_LANG['contact_error'] = 'We are sorry, but there appears to be a problem with the form you submitted.';
+$_LANG['contact_error_sorry'] = 'We are very sorry, but there were error(s) found with the form you submitted. ';
+$_LANG['contact_error_appears'] = 'These errors appear below.<br /><br />';
+$_LANG['contact_error_fix'] = 'Please go back and fix these errors.<br /><br />';
+$_LANG['contact_result_success'] = 'Message has been sent. We will contact you as soon as possible.';
+$_LANG['contact_result_fail'] = 'Message could not be sent.';
+$_LANG['contact_email_empty'] = 'It seems you are not entering the email';
+$_LANG['contact_name_empty'] = 'Name is required';
+$_LANG['contact_content_empty'] = 'You must at least enter something for content';
+
+
+
+$_LANG['ok'] = 'OK';
+$_LANG['cancel'] = 'Cancel';
+
 ?>

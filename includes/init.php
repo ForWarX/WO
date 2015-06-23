@@ -191,6 +191,7 @@ if (!defined('INIT_NO_SMARTY'))
     else
     {
         $smarty->assign('ecs_css_path', 'themes/' . $_CFG['template'] . '/style.css');
+        $smarty->assign('ecs_sweetalertcss_path', 'themes/' . $_CFG['template'] . '/sweetalert.css');
         $smarty->assign('ecs_awesome_font_css_path', 'themes/' . $_CFG['template'] . '/font-awesome/css/font-awesome.min.css');
         $smarty->assign('ecs_bootstrap_css_path', 'themes/' . $_CFG['template'] . '/bootstrap-3.3.5-dist/css/bootstrap.css');
         $smarty->assign('ecs_bootstrap_theme_css_path', 'themes/' . $_CFG['template'] . '/bootstrap-3.3.5-dist/css/bootstrap-theme.css');

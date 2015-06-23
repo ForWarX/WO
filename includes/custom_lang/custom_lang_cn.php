@@ -746,5 +746,18 @@ $_LANG['contact_form_content_placeholder'] = '您好，我想请问一些 ...';
 $_LANG['contact_form_submit'] = '提交';
 
 
+$_LANG['contact_email_invalid'] = '电邮格式有误';
+$_LANG['contact_error'] = '很抱歉，看样子有些错误导致邮件发送失败。';
+$_LANG['contact_error_sorry'] = '很抱歉，我们发现了一些错误导致邮件发送失败。';
+$_LANG['contact_error_appears'] = '信息如下。<br /><br />';
+$_LANG['contact_error_fix'] = '请修改这些错误<br /><br />';
+$_LANG['contact_result_success'] = '电邮已成功发送！我们将尽快给予您答复。';
+$_LANG['contact_result_fail'] = '电邮发送失败';
+$_LANG['contact_email_empty'] = '您好像忘记输入电邮地址了哦';
+$_LANG['contact_name_empty'] = '姓名可不能为空';
+$_LANG['contact_content_empty'] = '起码得输入点内容吧';
+
+$_LANG['ok'] = '好';
+$_LANG['cancel'] = '取消';
 
 ?>

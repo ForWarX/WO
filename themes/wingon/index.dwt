@@ -259,7 +259,7 @@
 <td style="width:5%;">
 </td>
 <td style="text-align:left;width:25%;vertical-align:top;">
-  <label class="control-label" for="contact-name"><i class="fa fa-user"></i>&nbsp;{$_LANG.contact_form_name}</label>
+  <label class="control-label" for="contact-name"><i class="glyphicon glyphicon-user"></i>&nbsp;{$_LANG.contact_form_name}</label>
 </td>
 <td style="text-align:right;">
   <div class="controls">
@@ -281,7 +281,7 @@
 <td style="width:5%;">
 </td>
 <td style="text-align:left;width:25%;vertical-align:top;">
-  <label class="control-label" for="contact-email"><i class="fa fa-envelope"></i>&nbsp;{$_LANG.contact_form_email}</label>
+  <label class="control-label" for="contact-email"><i class="glyphicon glyphicon-envelope"></i>&nbsp;{$_LANG.contact_form_email}</label>
 </td>
 <td style="text-align:right;">
   <div class="controls">
@@ -303,7 +303,7 @@
 <td style="width:5%;">
 </td>
 <td style="text-align:left;width:25%;vertical-align:top;">
-  <label class="control-label" for="contact-subject"><i class="fa fa-pencil"></i>&nbsp;{$_LANG.contact_form_subject}</label>
+  <label class="control-label" for="contact-subject"><i class="glyphicon glyphicon-subtitles"></i>&nbsp;{$_LANG.contact_form_subject}</label>
 </td>
 <td style="text-align:right;">
   <div class="controls">
@@ -325,7 +325,7 @@
 <td style="width:5%;">
 </td>
 <td style="text-align:left;width:25%;vertical-align:top;">
-  <label class="control-label" for="contact-content"><i class="fa fa-pencil-square-o"></i>&nbsp;{$_LANG.contact_form_content}</label>
+  <label class="control-label" for="contact-content"><i class="glyphicon glyphicon-pencil"></i>&nbsp;{$_LANG.contact_form_content}</label>
 </td>
 <td style="text-align:right;">
   <div class="controls">                     
@@ -350,7 +350,7 @@
 </td>
 <td style="text-align:right;">
   <div class="controls">
-    <button id="contact-submit" name="contact-submit" class="btn btn-default">{$_LANG.contact_form_submit}</button>
+    <button id="contact-submit" name="contact-submit" class="btn btn-default" onclick="submitMail();return false;">{$_LANG.contact_form_submit}</button>
   </div>
 </td>
 <td style="width:5%;">
@@ -369,7 +369,9 @@
 </div>
 </div>
 </div>
-
+<div id="mail-resp">
+  
+</div>
 
 <script>
 /*jQuery('.icon-settings').mouseover(function() {
@@ -437,6 +439,67 @@ Email: sales@wingon.ca
 
   // Enable map zooming with mouse scroll when the user clicks the map
   $('.maps.embed-container').on('click', onMapClickHandler);
+  
+  
+  
+  
+  
+  
+  
+  
+  	function submitMail() {
+
+		var subject = document.getElementById('contact-subject').value;
+		var content = document.getElementById('contact-content').value;
+		var email = document.getElementById('contact-email').value;
+		var name = document.getElementById('contact-name').value;
+		
+		var error = '';
+		
+		if (email == ''){
+			error += '<li><font style="font-size:1.4em;">' + "{$_LANG.contact_email_empty}" + '</font></li>';
+		}
+		else {
+			var email_exp = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+			if(!email.match(email_exp)) {
+				error += '<li><font style="font-size:1.4em;">' + "{$_LANG.contact_email_invalid}" + '</font></li>';
+			}
+		}
+		
+		if (name == ''){ error += '<li><font style="font-size:1.4em;">' + "{$_LANG.contact_name_empty}" + '</font></li>'; }
+		if (content == ''){ error += '<li><font style="font-size:1.4em;">' + "{$_LANG.contact_content_empty}" + '</font></li>'; }
+		
+		if (error != ''){swal({   title: "",   text: error,   type: "error",   confirmButtonText: "{$_LANG.ok}", html: true });return false;}
+
+	    Ajax.call('mail.php?', "contact-subject=" + subject + "&contact-content=" + content + "&contact-email=" + email + "&contact-name=" + name, mailResponse, "GET", "JSON");
+
+	}
+  
+  
+	function mailResponse(result) {
+		var html = '';
+		var grid = '';
+		if (result.error == ''|| result.error == null) {
+			swal({   title: "",   text: result.message,   type: "success",   confirmButtonText: "{$_LANG.ok}", html: true });
+			//document.getElementById("mail-resp").innerHTML = result.message;
+			//$("#mail-resp").center();
+			//document.getElementById("mail-resp").style.display = 'block';
+			//$("#mail-resp").fadeIn('slow');
+			//$("#mail-resp").delay(10000).fadeOut();
+			//$("#pin-container").append(html);
+			document.getElementById('contact-form').reset();
+
+		} else {
+			swal({   title: "",   text: result.error,   type: "error",   confirmButtonText: "{$_LANG.ok}", html: true });
+		}
+			
+		//alert(result.error);
+		//document.getElementById('ajax-loading').innerHTML = '';
+		return true;
+	}
+  
+  
+  
 </script>
 	
 	
