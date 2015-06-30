@@ -1776,7 +1776,7 @@ function assign_template($ctype = '', $catlist = array())
 					   <option selected="selected">简体中文</option>
 					   </select>';
 
-}
+	}
 	else {$language = $_SESSION['language'];}
 	if ($language == '' || $language == '_ch'){
 		$language_a = '<select onChange="window.document.location.href=this.options[this.selectedIndex].value;" value="GO">
